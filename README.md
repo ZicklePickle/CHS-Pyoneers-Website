@@ -2,7 +2,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## How to Contibute to the Website
 
-1. Make sure you have [Node.js](https://nodejs.org/en) and NPM (which should come with Node.js) installed. To check if Node and NPM are installed correctly, run the follwoing comamnds in terminal which should both output version numbers:
+1. Make sure you have [Node.js](https://nodejs.org/en) and NPM (which should come with Node.js) installed. To check if Node and NPM are installed correctly, run the follwoing commands in terminal which should both output version numbers:
 
 ```bash
 node -v
@@ -20,7 +20,7 @@ git clone https://github.com/CHS-Pyoneers/Website.git
 ```bash
 npm install
 ```
-5. Use the command `npm run dev` to run the website locally and navigate to [http://localhost:3000](http://localhost:3000) in your browser. Links to documentation are available below. 
+5. Use the command `npm run dev` to serve the website locally and navigate to [http://localhost:3000](http://localhost:3000) in your browser. Links to documentation are available below. 
 
 6. Start writing code! The website should live-update in your browser whenever you save.
 

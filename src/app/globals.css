@@ -3,6 +3,7 @@
   --background-darker: #161618;
   --text: white;
   --text-accent: #d1b200;
+  --dark-blue-accent: #00333f;
 }
 
 * {
@@ -40,7 +41,7 @@ a:hover {
 
 .page {
   width: 100%;
-  flex-grow: 1;
+  flex: 1;
 }
 
 .btn-primary {
@@ -63,4 +64,17 @@ a:hover {
   font-size: 1rem;
   font-family: monospace;
   cursor: pointer;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: monospace;
+  margin-bottom: 0.5rem;
+}
+
+h1 {
+  font-size: xx-large;
+}
+
+p {
+  margin-bottom: 0.5rem;;
 }

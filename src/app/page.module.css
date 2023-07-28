@@ -11,7 +11,7 @@
   align-items: center;
   justify-content: center;
   padding: 1rem;
-  background: linear-gradient(45deg, rgba(0,48,59,1) 0%, rgba(34,34,37,1) 100%); 
+  background: linear-gradient(45deg, #00333f 0%, #232331 100%); 
 }
 
 .logo {
@@ -19,17 +19,21 @@
   height: 20rem;
   background-color: var(--text-accent);
   text-align: center;
+  border-radius: 4px;
 }
 
 .title {
   font-size: 5rem;
+  margin-bottom: 0.5rem;
+  margin-left: -0.1ch;
+  font-weight: bold;
 }
 
 .btngroup {
   display: flex;
   flex-direction: row;
   gap: 0.5rem;
-  padding-top: 1rem;
+  margin-top: 3rem;
 }
 
 @media screen and (max-width: 750px) {
@@ -46,4 +50,8 @@
     width: 15rem;
     height: 15rem;
   }
+}
+
+.content {
+  padding: 1rem;
 }
