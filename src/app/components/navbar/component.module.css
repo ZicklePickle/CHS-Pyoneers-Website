@@ -3,14 +3,14 @@
     flex-direction: row;
     gap: 1rem;
     width: 100%;
-    padding: 1rem;
+    padding: 1.4rem;
     background-color: var(--background-darker);
     align-items: center;
 }
 
 .name {
     font-weight: bold;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     color: var(--text);
     transition: 0;
     margin-right: auto;
@@ -27,7 +27,7 @@
 }
 
 .navlink {
-    font-size: 1rem;
+    font-size: 1.15rem;
 }
 
 @media screen and (max-width: 750px) {

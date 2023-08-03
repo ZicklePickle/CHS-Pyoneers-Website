@@ -10,20 +10,19 @@
   width: 100%;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
+  padding: 3.25rem;
   background: linear-gradient(45deg, #00333f 0%, #232331 100%); 
 }
 
 .logo {
   width: 20rem;
   height: 20rem;
-  background-color: var(--text-accent);
   text-align: center;
   border-radius: 4px;
 }
 
 .title {
-  font-size: 5rem;
+  font-size: 4.5rem;
   margin-bottom: 0.5rem;
   margin-left: -0.1ch;
   font-weight: bold;
@@ -36,6 +35,43 @@
   margin-top: 3rem;
 }
 
+.aboutcontainer{
+  
+  width:1150px;
+  height:500px;
+  display: flex;
+  flex-direction: row;
+  padding:4rem 2rem;
+  justify-content: center;
+  align-items: center;
+  
+ 
+}
+.aboutInfoContainer{
+  width:50%;
+  padding-right: 2.5rem;
+
+}
+.pythonImageContainer{
+  width:500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+}
+.text{
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  margin-left: -0.1ch;
+  font-weight:100;
+  margin-bottom: 1rem;
+}
+.learnMoreBtn{
+  margin-left: -.5rem;
+  margin-top: 3rem;
+  font-size: 1.25rem;
+}
 @media screen and (max-width: 750px) {
   .homecontainer {
     flex-direction: column;
@@ -54,4 +90,7 @@
 
 .content {
   padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
