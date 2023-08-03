@@ -38,7 +38,7 @@
 .aboutcontainer{
   
   width:1150px;
-  height:500px;
+
   display: flex;
   flex-direction: row;
   padding:4rem 2rem;
@@ -49,7 +49,7 @@
 }
 .aboutInfoContainer{
   width:50%;
-  padding-right: 2.5rem;
+  padding-right: 2rem;
 
 }
 .pythonImageContainer{
@@ -85,6 +85,17 @@
   .logo {
     width: 15rem;
     height: 15rem;
+  }
+  .aboutcontainer{
+    flex-direction: column;
+  }
+  .aboutInfoContainer{
+    width:85%;
+    margin-top: 4rem;
+   order:2;
+  }
+  .pythonImageContainer{
+    order:1;
   }
 }
 
