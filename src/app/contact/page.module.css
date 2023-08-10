@@ -1,15 +1,21 @@
 .main {
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(45deg, #00333f 0%, #232331 100%);
 }
 
 .homecontainer {
   display: flex;
+  flex-wrap: wrap;
+  height: 100%;
   flex-direction: row;
   align-items: center; 
-  justify-content: space-between;
-  padding: 9rem;
-  background: linear-gradient(45deg, #00333f 0%, #232331 100%);
+  justify-content: center;
+  padding: 2rem;
 }
 
 .textContainer {
@@ -24,14 +30,14 @@
 .title {
   font-size: 4.5rem;
   margin-bottom: 0.5rem;
-  margin-left: -0.1ch;
+  margin-left: -2px;
   font-weight: bold;
+  line-height: 4.5rem;
 }
 
 .subtext {
   font-size: 1.8rem;
   margin-bottom: 1rem;
-  margin-left: -0.1ch;
   font-weight: 100;
   width: 60%;
 }
@@ -39,7 +45,6 @@
 .responseTime {
     font-size: 1.2rem;
     margin-bottom: 1rem;
-    margin-left: -0.1ch;
     font-weight: 100;
     width: 60%;
 }
@@ -61,6 +66,7 @@
   text-decoration: none;
   border-radius: 8px;
   transition: background-color 0.3s, color 0.3s;
+  width: 100%;
 }
 
 .instagram {
@@ -74,6 +80,10 @@
     cursor: pointer;
 }
 
+.instagram:hover {
+  background-color: #E1306C;
+}
+
 .discord {
     border-radius: 0;
     border: #5865F2 1px solid;
@@ -83,6 +93,10 @@
     font-size: 1.5rem;
     font-family: monospace;
     cursor: pointer;
+}
+
+.discord:hover {
+  background-color: #5865F2;
 }
 
 .email {
@@ -96,8 +110,11 @@
     cursor: pointer;
 }
 
+.email:hover {
+  background-color: #DB4437;
+}
+
 .btn:hover {
-  background-color: #333333;
   color: white;
 }
 
@@ -116,4 +133,18 @@
 
 .typewriter {
     display: inline-block;
+}
+
+@media screen and (max-width: 750px) {
+  .buttonsContainer {
+    width: 100%;
+  }
+
+  .subtext {
+    width: 100%;
+  }
+
+  .responseTime {
+    width: 100%;
+  }
 }

@@ -22,9 +22,8 @@
 }
 
 .title {
-  font-size: 4.5rem;
+  font-size: 3rem;
   margin-bottom: 0.5rem;
-  margin-left: -0.1ch;
   font-weight: bold;
 }
 
@@ -41,16 +40,13 @@
 
   display: flex;
   flex-direction: row;
-  padding:4rem 2rem;
+  padding:4rem 3rem;
   justify-content: center;
   align-items: center;
-  
- 
 }
 .aboutInfoContainer{
   width:50%;
   padding-right: 2rem;
-
 }
 .pythonImageContainer{
   width:500px;
@@ -64,13 +60,12 @@
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
   margin-left: -0.1ch;
-  font-weight:100;
   margin-bottom: 1rem;
 }
 .learnMoreBtn{
   margin-left: -.5rem;
   margin-top: 3rem;
-  font-size: 1.25rem;
+  font-size: 1rem;
 }
 @media screen and (max-width: 750px) {
   .homecontainer {
