@@ -1,8 +1,7 @@
 "use client";
 import Image from 'next/image'
-import { useEffect, useState } from 'react';
 import styles from './page.module.css'
-import { motion, useInView } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { RevealAnimation } from "./components/revealAnimation/RevealAnimation"
 import Link from 'next/link';
 
@@ -11,7 +10,7 @@ export default function Home() {
 
     <main className={styles.main}>
       <div className={styles.homecontainer}>
-        <Image src="/logo.png" width={100} height={100} sizes='(max-width: 750px) 15rem, 20rem' className={styles.logo} />
+        <Image src="/Website/logo.png" width={100} height={100} sizes='(max-width: 750px) 15rem, 20rem' className={styles.logo} />
         <div>
           <span className={styles.title}>CHS Pyoneers</span>
           <p>Some subtitle text goes here...</p>
@@ -46,7 +45,7 @@ export default function Home() {
                 repeat: Infinity,
                 duration: 9,
                 ease: 'linear',
-              }} src="/pythonLogo.png" className={styles.logo} />
+              }} src="/Website/pythonLogo.png" className={styles.logo} />
           </div>
         </div>
       </div>
