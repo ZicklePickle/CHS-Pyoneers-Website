@@ -1,6 +1,6 @@
 "use client"; // next js kinda weird need to add this.
 import styles from './component.module.css'
-import { Link, animateScroll as scroll } from "react-scroll";
+import Link from 'next/link';
 
 export default function NavBar() {
 
@@ -12,10 +12,10 @@ export default function NavBar() {
   };
   return (
     <nav className={styles.navbar}>
-      <a href='/' className={styles.name}><span>&gt;</span>Pyoneers</a>
-      <a className={styles.navlink} href='/about'>About</a>
-      <a className={styles.navlink} href='/cint'>CInT</a>
-      <a className={styles.navlink} href='/contact'>Contact</a>
+      <Link href='/' className={styles.name}><span>&gt;</span>Pyoneers</Link>
+      <Link className={styles.navlink} href='/about'>About</Link>
+      <Link className={styles.navlink} href='/cint'>CInT</Link>
+      <Link className={styles.navlink} href='/contact'>Contact</Link>
       
     </nav>
   )

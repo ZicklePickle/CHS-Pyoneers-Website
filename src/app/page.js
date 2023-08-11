@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 import styles from './page.module.css'
 import { motion, useInView } from 'framer-motion';
 import { RevealAnimation } from "./components/revealAnimation/RevealAnimation"
+import Link from 'next/link';
+
 export default function Home() {
   return (
 
@@ -32,7 +34,7 @@ export default function Home() {
               <p className={styles.text}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus minus quis deleniti voluptatum esse ea, commodi delectus porro repellat aspernatur. Iste animi eligendi rerum nisi alias consequatur quas maxime sint.
                 Aliquam veritatis laudantium dolor culpa, error natus reprehenderit quisquam, autem voluptate possimus pariatur minus nobis enim neque ab a maiores, reiciendis dicta quasi magnam unde illo. Tenetur minima iste rerum.</p>
 
-              <a href='/about' className={styles.learnMoreBtn}>Learn More!</a>
+              <Link href='/about' className={styles.learnMoreBtn}>Learn More!</Link>
             </RevealAnimation>
           </div>
 
