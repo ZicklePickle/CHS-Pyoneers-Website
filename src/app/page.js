@@ -11,7 +11,7 @@ export default function Home() {
 
     <main className={styles.main}>
       <div className={styles.homecontainer}>
-        <img src="/logo.png" className={styles.logo} />
+        <Image src="/logo.png" width={100} height={100} sizes='(max-width: 750px) 15rem, 20rem' className={styles.logo} />
         <div>
           <span className={styles.title}>CHS Pyoneers</span>
           <p>Some subtitle text goes here...</p>
