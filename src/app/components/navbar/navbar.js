@@ -14,9 +14,8 @@ export default function NavBar() {
     <nav className={styles.navbar}>
       <Link href='/' className={styles.name}><span>&gt;</span>Pyoneers</Link>
       <Link className={styles.navlink} href='/about'>About</Link>
-      <Link className={styles.navlink} href='/cint'>CInT</Link>
+      <Link className={styles.navlink} rel="noreferrer noopener" target="_blank" href='https://cint.info'>CInT</Link>
       <Link className={styles.navlink} href='/contact'>Contact</Link>
-      
     </nav>
   )
 }
