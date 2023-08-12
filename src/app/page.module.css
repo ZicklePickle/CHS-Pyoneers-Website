@@ -35,25 +35,19 @@
 }
 
 .aboutcontainer{
-  
-  width:1150px;
-
   display: flex;
   flex-direction: row;
   padding:4rem 3rem;
   justify-content: center;
   align-items: center;
-}
-.aboutInfoContainer{
-  width:50%;
+  gap: 2rem;
+  max-width: 75rem;
 }
 .pythonImageContainer{
   width:500px;
   display: flex;
   justify-content: center;
   align-items: center;
-
-
 }
 .text{
   font-size: 1.2rem;
@@ -82,9 +76,11 @@
   }
   .aboutcontainer{
     flex-direction: column;
+    width: 100%;
+    padding: 1rem;
   }
   .aboutInfoContainer{
-    width:85%;
+    width:100%;
     margin-top: 4rem;
    order:2;
   }
