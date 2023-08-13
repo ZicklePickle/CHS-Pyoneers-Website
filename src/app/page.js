@@ -13,7 +13,7 @@ export default function Home() {
         <Image src="/Website/logo.png" width={100} height={100} sizes='(max-width: 750px) 15rem, 20rem' className={styles.logo} />
         <div>
           <span className={styles.title}>CHS Pyoneers</span>
-          <p>Some subtitle text goes here...</p>
+          <p>Centennial's premier programming club!</p>
           <div className={styles.btngroup}>
             <button className='btn-primary'>Log Attendance</button>
             <button className='btn-secondary'>View Credits</button>
@@ -30,9 +30,9 @@ export default function Home() {
             </RevealAnimation>
 
             <RevealAnimation>
-              <p className={styles.text}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus minus quis deleniti voluptatum esse ea, commodi delectus porro repellat aspernatur. Iste animi eligendi rerum nisi alias consequatur quas maxime sint.
-                Aliquam veritatis laudantium dolor culpa, error natus reprehenderit quisquam, autem voluptate possimus pariatur minus nobis enim neque ab a maiores, reiciendis dicta quasi magnam unde illo. Tenetur minima iste rerum.</p>
-
+              <p className={styles.text}>CHS Pyoneers is Centennial High School's premier programming club! Since its inception in 2020, the Pyoneers club has rapidly grown to become one of the largest clubs in Centennial. It has hosted the 2021, 2022, and 2023 Centennial Informatics Tournaments with over <font color="green">[FIGURE]+ cumulative attendees</font> over the years. Additionally, the club has held Python lessons at numerous middle and high school with <font color="green">[FIGURE]+ students</font> taught over the years.
+              Currently, the club is still rapidly growing and currently has over <font color="green">100 members</font> who all play an active part in our community!
+              </p>
               <Link href='/about' className={styles.learnMoreBtn}>Learn More!</Link>
             </RevealAnimation>
           </div>

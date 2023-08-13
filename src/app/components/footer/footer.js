@@ -7,7 +7,7 @@ export default function Footer() {
         <div className={styles.col}>
             <Link href="/" className={styles.sectionheader}>CHS Pyoneers</Link>
             <a className={styles.navlink} href="mailto:chspyoneers@gmail.com">Email</a>
-            <a className={styles.navlink} href="<LINK HERE>">Join our Discord!</a>
+            <a className={styles.navlink} href="https://discord.gg/c4RF24rUp8s">Join our Discord!</a>
         </div>
         <div className={styles.col}>
             <h3 className={styles.sectionheader}>Site Links</h3>
@@ -17,7 +17,12 @@ export default function Footer() {
         </div>
         <div className={styles.lastcol}>
             <h3 className={styles.sectionheader}>Contributors</h3>
-            <p className={styles.contribs}>List of contibutors goes here</p>
+            <p className={styles.contribs}>
+            Daud Idrees<br/>
+            Ramy Kaddouri<br/>
+            Jaden Li<br/>
+            Aryan Sharma<br/>
+            </p>
         </div>
     </main>
   )
