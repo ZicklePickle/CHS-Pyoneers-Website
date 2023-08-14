@@ -6,6 +6,7 @@
 .homecontainer {
   display: flex;
   flex-direction: row;
+  
   gap: 2rem;
   width: 100%;
   align-items: center;
@@ -15,8 +16,8 @@
 }
 
 .logo {
-  width: 20rem;
-  height: 20rem;
+  width: 21rem;
+  height: 21rem;
   text-align: center;
   border-radius: 4px;
 }
@@ -37,10 +38,11 @@
 .aboutcontainer{
   display: flex;
   flex-direction: row;
-  padding:4rem 3rem;
+  padding:4rem 4rem;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  gap: 5rem;
+  margin: 4rem 0rem;
   max-width: 75rem;
 }
 .pythonImageContainer{
@@ -50,7 +52,7 @@
   align-items: center;
 }
 .text{
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   margin-bottom: 0.5rem;
   margin-left: -0.1ch;
   margin-bottom: 1rem;

@@ -15,8 +15,11 @@ export default function Home() {
           <span className={styles.title}>CHS Pyoneers</span>
           <p>Centennial's premier programming club!</p>
           <div className={styles.btngroup}>
-            <button className='btn-primary'>Log Attendance</button>
-            <button className='btn-secondary'>View Credits</button>
+          
+            <Link className='btn-primary' href='/clubmember'>Contact</Link>
+            <Link className='btn-secondary' href='/clubmember'>Contact</Link>
+            
+         
           </div>
         </div>
       </div>
