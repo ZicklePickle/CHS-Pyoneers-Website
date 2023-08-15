@@ -16,8 +16,8 @@ export default function Home() {
           <p>Centennial's premier programming club!</p>
           <div className={styles.btngroup}>
           
-            <Link className='btn-primary' href='/clubmember'>Contact</Link>
-            <Link className='btn-secondary' href='/clubmember'>Contact</Link>
+            <Link className='btn-primary' href='/clubmember'>Credits</Link>
+            <Link className='btn-secondary' href='/clubmember'>Attendance</Link>
             
          
           </div>

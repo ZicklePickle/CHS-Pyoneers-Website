@@ -2,7 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
-
+require('dotenv').config()
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
@@ -12,18 +12,22 @@ import 'firebase/compat/firestore';
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyAwwlG7HfMzLvXTbjBwyJvjbtbNfOlEHz0",
-  authDomain: "chspyoneerswebsite-93c7c.firebaseapp.com",
-  projectId: "chspyoneerswebsite-93c7c",
-  storageBucket: "chspyoneerswebsite-93c7c.appspot.com",
-  messagingSenderId: "437432821867",
-  appId: "1:437432821867:web:51f266c6871c320236692e",
-  measurementId: "G-QW1NJZKY0E"
+  apiKey: process.env.FIREBASE_API_KEY,
+  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.FIREBASE_PROJECTID,
+  storageBucket: process.env.FIREBASE_STORAGEBUCKET,
+  messagingSenderId: process.env.FIREBASE_MESSAGESENDERID,
+  appId: process.env.FIREBASE_APPID,
+  measurementId: process.env.FIREBASE_MEASUREMENTID
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+
+let analytics = null;
+if (typeof window !== 'undefined') {
+  analytics = getAnalytics(app);
+}
 
 
 const auth = getAuth(app);
