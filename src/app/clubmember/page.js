@@ -25,11 +25,19 @@ export default function ClubMember() {
       const userSnapshot = await userRef.get();
 
       if (!userSnapshot.exists) {
+        let signUpDate = new Date();
+
+        let date = signUpDate.getDate();
+let month = signUpDate.getMonth() + 1;
+let year = signUpDate.getFullYear();
+
+let finalDate = month + "-" + date + "-"+year;
         const newUserDocData = {
             displayName: user.displayName,
             email: user.email,
             credits: 0,
-            confirmed: false,
+            verified: false,
+            creditsBreakdown:[{credits:0, for:"Website signup", date:finalDate},],
             role: "student",
           };
     
@@ -55,24 +63,30 @@ export default function ClubMember() {
   return (
     <div className={styles.main}>
       {user ? (
-        <div>
-          <p>Welcome, {user.displayName}</p>
-          <button className={styles.logoutbtn} onClick={handleLogout}>Logout</button>
+        <>
+        <button className={styles.logoutbtn} onClick={handleLogout}>Logout</button>
+          <p1>Welcome, {user.displayName}</p1>
+          
+          {userDocData.verified ?(<>
+          {userDocData.role=="admin"? (
 
-          {userDocData.role=="student"? (
-
-            <div>
-              <button onClick={()=>setCurrentPage('credits')}>Credits</button>
-              <button onClick={()=>setCurrentPage('admin')}>Admin</button>
-              {currentPage=="credits"?<CreditsPage user={user} userDoc={userDocData}/>:<AdminPage user={user} userDoc={userDocData} />}
-            </div>
+           <>
+              <div className={styles.adminBtns}>
+              <button className='btn-secondary' onClick={()=>setCurrentPage('credits')}>Credits</button>
+              <button className='btn-primary' onClick={()=>setCurrentPage('admin')}>Admin</button>
+              </div>
+             
+              {currentPage=="credits"?<CreditsPage user={user} userDoc={userDocData}/>:<AdminPage  user={user} userDoc={userDocData} />}
+             
+           </>
           ) : (
-
-            <CreditsPage/>
+          
+            <CreditsPage />
+            
           )
 
-          }
-        </div>
+          }</>):(<div>Please ask an admin to verify your account</div>)} 
+        </>
       ) : (
         <div>
           <GoogleButton onClick={handleGoogleSignIn} />

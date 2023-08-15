@@ -1,0 +1,55 @@
+.main{
+
+    position: relative;
+    width: 100%;
+    height:fit-content;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap:5rem;
+    margin-top: 4rem;
+}
+
+.Container{
+width:270px;
+height:400px;
+background: rgb(3, 27, 37);
+position: relative;
+border:2px solid rgb(0, 5, 7);
+border-radius: 1rem;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+transition: all .1s ease-in-out;
+gap:1rem;
+}
+
+.Container:hover{
+    bottom:8px;
+    cursor: pointer;
+}
+.verifyIcon{
+    background: url('../../../../public/verifyicon.jpg');
+}
+.creditIcon{
+    background: url('../../../../public/crediticon.png');
+}
+.announcementIcon{
+    background: url('../../../../public/announcementicon.png');
+}
+.verifyIcon,.creditIcon,.announcementIcon{
+width:190px;
+height:190px;
+background-size: cover;
+}
+
+@media screen and (max-width: 750px) {
+.main{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+}
