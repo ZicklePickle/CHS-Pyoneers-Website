@@ -2,9 +2,20 @@
 import styles from './Component.module.css'
 import {useEffect,useState} from "react";
 import {firebase} from '../../firebase/config';
+import {getAllUser,updateCreds} from '../../services/userService'
 export default function AdminPage ({user,userDoc}) {
 
-    
+        const[allUsers,setAllUsers] = useState({})
+
+        useEffect(() => {
+               getUsers();
+              })
+
+        
+
+              const getUsers = async () => {
+                setAllUsers(await getAllUser());
+                }
 
     return(
     <div className={styles.main}>

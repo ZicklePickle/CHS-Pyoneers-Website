@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 import { GoogleButton } from 'react-google-button';
 import CreditsPage from './creditsPage/CreditsPage'
 import AdminPage from './adminPage/AdminPage'
-import {getUser} from "../services/userService"
+import {getUser,registerUserDoc} from "../services/userService"
 
 export default function ClubMember() {
   let [user, setUser] = useState(null);
@@ -43,7 +43,7 @@ export default function ClubMember() {
     let userSnapshot = await getUser(authUser.uid)
 
     if(!userSnapshot.exists) {
-      await registerUserDoc(authUser, "student", true)
+      setUserDocData(await registerUserDoc(authUser, "student", true)) 
     } else {
       console.log(userSnapshot.data())
     }
@@ -57,28 +57,28 @@ export default function ClubMember() {
     <div className={styles.main}>
       {user ? (
         <>
-          <button class="btn-primary" onClick={handleLogout}>Logout</button>
-          <p1>Welcome, {user.displayName}</p1>
-
-          {userDocData.verified ? (<>
-            {userDocData.role == "admin" ? (
-
-              <>
-                <div className={styles.adminBtns}>
-                  <button className='btn-secondary' onClick={() => setCurrentPage('credits')}>Credits</button>
-                  <button className='btn-primary' onClick={() => setCurrentPage('admin')}>Admin</button>
-                </div>
-
-                {currentPage == "credits" ? <CreditsPage user={user} userDoc={userDocData} /> : <AdminPage user={user} userDoc={userDocData} />}
-
-              </>
-            ) : (
-
-              <CreditsPage />
-
-            )
-
-            }</>) : (<div>Please ask an admin to verify your account</div>)}
+          <div className={styles.logoutbtn}><button className="btn-primary" onClick={handleLogout}>Logout</button></div>
+          
+          <p1 className={styles.welcomeTxt}>Welcome, {user.displayName}</p1>
+  
+          {userDocData && userDocData.verified !== undefined ? (
+            <>
+              {userDocData.role === "admin" ? (
+                <>
+                  <div className={styles.adminBtns}>
+                    <button className='btn-secondary' onClick={() => setCurrentPage('credits')}>Credits</button>
+                    <button className='btn-primary' onClick={() => setCurrentPage('admin')}>Admin</button>
+                  </div>
+  
+                  {currentPage === "credits" ? <CreditsPage user={user} userDoc={userDocData} /> : <AdminPage user={user} userDoc={userDocData} />}
+                </>
+              ) : (
+                <CreditsPage user={user} userDoc={userDocData}  />
+              )}
+            </>
+          ) : (
+            <div>Please ask an admin to verify your account</div>
+          )}
         </>
       ) : (
         <div>
@@ -87,4 +87,5 @@ export default function ClubMember() {
       )}
     </div>
   );
+  
 }

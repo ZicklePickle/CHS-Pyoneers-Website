@@ -1,0 +1,13 @@
+.main{
+margin-top: 1.5rem;
+}
+.creditContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.credits{
+    font-size: 4.5rem;
+    margin: .25rem 0;
+}

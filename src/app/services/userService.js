@@ -26,7 +26,50 @@ async function registerUserDoc(user, role, verified) {
     };
 
     await userRef.set(newUserDocData)    
+  
+    await firebase.firestore().collection('users').doc('allUsers').update(
+        {
+            [user.displayName]:user.uid
+
+        }
+    )
     return newUserDocData;
 }
+async function getAllUser(){
+    const userRef = firebase.firestore().collection('users').doc('allUsers');
+    const userSnapshot = await userRef.get();
 
-export { getUser, registerUserDoc }
+    return userSnapshot;
+}
+
+async function updateCreds(user,currentCredits,addCredits,reason) {
+    const userRef = firebase.firestore().collection('users').doc(user.uid);
+
+    let totalCredits = addCredits+currentCredits;
+
+    let curDate = new Date();
+
+    let date = curDate.getDate();
+    let month = curDate.getMonth() + 1;
+    let year = curDate.getFullYear();
+
+    let finalDate = month + "-" + date + "-" + year;
+
+
+
+
+    let breakDown = [
+        { credits: addCredits, for: reason, date: finalDate }
+    ];
+
+  
+    await userRef.update({
+        credits: totalCredits,
+        creditsBreakdown: firebase.firestore.FieldValue.arrayUnion(...breakDown)
+    });
+
+    return totalCredits; 
+    
+}
+
+export { getUser, registerUserDoc, updateCreds,getAllUser }
