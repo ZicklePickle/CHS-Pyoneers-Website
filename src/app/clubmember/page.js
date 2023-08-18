@@ -13,13 +13,13 @@ export default function ClubMember() {
   let [userDocData, setUserDocData] = useState({});
   let [currentPage, setCurrentPage] = useState('credits')
 
-  auth.onAuthStateChanged(user => {
-    setUser(user)
-  })
-
+ 
   useEffect(() => {
-    console.log("HELLO WORLD!")
-    console.log(auth.currentUser)
+    auth.onAuthStateChanged(u => {
+      console.log(u)
+      setUser(u)
+    })  
+
     if(user) {
       getUser(user.uid).then(snap => {
         setUserDocData(snap.data())
@@ -51,14 +51,13 @@ export default function ClubMember() {
 
   const handleLogout = async () => {
     await auth.signOut()
-    setUser(null);
   };
 
   return (
     <div className={styles.main}>
       {user ? (
         <>
-          <button className={styles.logoutbtn} onClick={handleLogout}>Logout</button>
+          <button class="btn-primary" onClick={handleLogout}>Logout</button>
           <p1>Welcome, {user.displayName}</p1>
 
           {userDocData.verified ? (<>

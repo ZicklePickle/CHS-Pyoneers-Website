@@ -54,6 +54,12 @@ a:hover {
   font-size: 1rem;
   font-family: monospace;
   cursor: pointer;
+  transition: 0.1s;
+}
+
+.btn-primary:hover {
+  background-color: var(--text-accent);
+  color: var(--text);
 }
 
 .btn-secondary {
@@ -65,6 +71,12 @@ a:hover {
   font-size: 1rem;
   font-family: monospace;
   cursor: pointer;
+  transition: 0.1s;
+}
+
+.btn-secondary:hover {
+  background-color: var(--text);
+  color: var(--background-darker);
 }
 
 h1, h2, h3, h4, h5, h6 {
