@@ -4,10 +4,41 @@ import styles from './page.module.css'
 import { motion } from 'framer-motion';
 import { RevealAnimation } from "./components/revealAnimation/RevealAnimation"
 import Link from 'next/link';
+import { signInWithPopup, setPersistence, browserSessionPersistence } from 'firebase/auth';
+import { auth, provider, firebase } from './firebase/config';
+import { useState } from 'react';
+import {getUser, registerUserDoc} from './services/userService'
+import { useRouter } from 'next/navigation'
 
 export default function Home() {
-  return (
+  let [user, setUser] = useState(null)
+  let router = useRouter()
 
+  async function viewCredits() {
+    let authUser;
+    if(user == null) {
+      try {
+        await setPersistence(auth, browserSessionPersistence)
+        const result = await signInWithPopup(auth, provider)
+        authUser = result.user
+        setUser(authUser)
+      } catch(err) {
+        console.log(err)
+      }
+    }
+
+    let userSnapshot = await getUser(authUser.uid)
+
+    if(!userSnapshot.exists) {
+      await registerUserDoc(authUser, "student", true)
+    } else {
+      console.log(userSnapshot.data())
+    }
+
+    router.push("/clubmember")
+  }
+
+  return (
     <main className={styles.main}>
       <div className={styles.homecontainer}>
         <Image src="/Website/logo.png" width={100} height={100} sizes='(max-width: 750px) 15rem, 20rem' className={styles.logo} />
@@ -15,11 +46,8 @@ export default function Home() {
           <span className={styles.title}>CHS Pyoneers</span>
           <p>Centennial's premier programming club!</p>
           <div className={styles.btngroup}>
-          
-            <Link className='btn-primary' href='/clubmember'>Credits</Link>
-            <Link className='btn-secondary' href='/clubmember'>Attendance</Link>
-            
-         
+            <button className='btn-primary' onClick={viewCredits}>View Credits</button>
+            <button className='btn-secondary'>Log Attendance</button>
           </div>
         </div>
       </div>
