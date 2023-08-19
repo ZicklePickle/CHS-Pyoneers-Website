@@ -25,21 +25,13 @@ async function registerUserDoc(user, role, verified) {
         role: role,
     };
 
-    await userRef.set(newUserDocData)    
-  
-    await firebase.firestore().collection('users').doc('allUsers').update(
-        {
-            [user.displayName]:user.uid
-
-        }
-    )
+    await userRef.set(newUserDocData)
     return newUserDocData;
 }
-async function getAllUser(){
-    const userRef = firebase.firestore().collection('users').doc('allUsers');
-    const userSnapshot = await userRef.get();
 
-    return userSnapshot;
+async function getAllUser() {
+    const snapshot = await firebase.firestore().collection("users").get()
+    return snapshot.docs.map(user => user.data());
 }
 
 async function updateCreds(user,currentCredits,addCredits,reason) {
@@ -54,9 +46,6 @@ async function updateCreds(user,currentCredits,addCredits,reason) {
     let year = curDate.getFullYear();
 
     let finalDate = month + "-" + date + "-" + year;
-
-
-
 
     let breakDown = [
         { credits: addCredits, for: reason, date: finalDate }
