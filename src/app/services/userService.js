@@ -26,16 +26,25 @@ async function registerUserDoc(user, role, verified) {
     };
 
     await userRef.set(newUserDocData)
+
+    await firebase.firestore().collection('users').doc('allUsers').update(
+        {
+            [user.displayName]:user.uid
+
+        }
+    )
     return newUserDocData;
 }
 
-async function getAllUser() {
-    const snapshot = await firebase.firestore().collection("users").get()
-    return snapshot.docs.map(user => user.data());
+async function getAllUser(){
+    const userRef = firebase.firestore().collection('users').doc('allUsers');
+    const userSnapshot = await userRef.get();
+
+    return userSnapshot.data();
 }
 
-async function updateCreds(user,currentCredits,addCredits,reason) {
-    const userRef = firebase.firestore().collection('users').doc(user.uid);
+async function updateCreds(uid,currentCredits,addCredits,reason) {
+    const userRef = firebase.firestore().collection('users').doc(uid);
 
     let totalCredits = addCredits+currentCredits;
 
@@ -61,4 +70,16 @@ async function updateCreds(user,currentCredits,addCredits,reason) {
     
 }
 
-export { getUser, registerUserDoc, updateCreds,getAllUser }
+async function updatePermissions(uid,role,verified) {
+    const userRef = firebase.firestore().collection('users').doc(uid);
+
+    await userRef.update({
+        role:role,
+        verified:verified,
+    });
+
+    
+    
+}
+
+export { getUser, registerUserDoc, updateCreds,getAllUser,updatePermissions }

@@ -45,6 +45,8 @@ height:190px;
 background-size: cover;
 }
 
+
+
 @media screen and (max-width: 750px) {
 .main{
     flex-direction: column;

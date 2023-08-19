@@ -15,28 +15,33 @@ export default function Home() {
   let router = useRouter()
 
   async function viewCredits() {
-    let authUser;
-    if(user == null) {
+    let authUser = user; 
+  
+    if (authUser == null) {
       try {
-        await setPersistence(auth, browserSessionPersistence)
-        const result = await signInWithPopup(auth, provider)
-        authUser = result.user
-        setUser(authUser)
-      } catch(err) {
-        console.log(err)
+        await setPersistence(auth, browserSessionPersistence);
+        const result = await signInWithPopup(auth, provider);
+        authUser = result.user;
+        setUser(authUser);
+      } catch (err) {
+        console.log(err);
+        return; 
       }
     }
-
-    let userSnapshot = await getUser(authUser.uid)
-
-    if(!userSnapshot.exists) {
-      await registerUserDoc(authUser, "student", true)
-    } else {
-      console.log(userSnapshot.data())
+  
+    if (authUser) {
+      let userSnapshot = await getUser(authUser.uid);
+  
+      if (!userSnapshot.exists) {
+        await registerUserDoc(authUser, "student", true);
+      } else {
+        console.log(userSnapshot.data());
+      }
+  
+      router.push("/clubmember");
     }
-
-    router.push("/clubmember")
   }
+  
 
   return (
     <main className={styles.main}>
