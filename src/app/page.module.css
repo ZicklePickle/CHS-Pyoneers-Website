@@ -35,16 +35,17 @@
   margin-top: 3rem;
 }
 
-.aboutcontainer{
+.aboutcontainer {
   display: flex;
   flex-direction: row;
-  padding:4rem 4rem;
+  padding: 4rem 4rem;
   justify-content: center;
   align-items: center;
   gap: 5rem;
   margin: 4rem 0rem;
   max-width: 75rem;
 }
+
 .pythonImageContainer{
   width:500px;
   display: flex;

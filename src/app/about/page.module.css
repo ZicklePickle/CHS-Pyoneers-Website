@@ -46,19 +46,26 @@
     margin-top: 50px;
 }
 
-.committeeGroup {
-    display: flex;
-    flex-direction: row;
-}
-
-.committee {
-    width: 50%;
-    padding: 2%;
-    margin-top: -15px;
+.aboutcontainer {
+  display: flex;
+  flex-direction: row;
+  padding: 4rem 4rem;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+  max-width: 75rem;
 }
 
 .boardContainer {
     width: 90%;
     margin: auto;
     margin-top: 40px;
+}
+
+.content {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "dotenv": "^16.3.1",
-    "firebase": "^10.1.0",
+    "firebase": "^10.2.0",
     "framer-motion": "^10.15.0",
     "multiselect-react-dropdown": "^2.0.25",
     "next": "^13.4.16",
@@ -23,6 +23,7 @@
   "devDependencies": {
     "@types/node": "20.4.6",
     "@types/react": "18.2.18",
+    "encoding": "^0.1.13",
     "typescript": "5.1.6"
   }
 }
