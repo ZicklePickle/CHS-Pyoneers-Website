@@ -1,4 +1,4 @@
-import { auth, provider, firebase } from '../firebase/config';
+import { firebase } from '../firebase/config';
 
 async function getUser(id) {
     const userRef = firebase.firestore().collection('users').doc(id);

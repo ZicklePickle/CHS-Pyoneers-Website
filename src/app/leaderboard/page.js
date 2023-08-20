@@ -10,6 +10,7 @@ export default function Page() {
         console.log(users)
         if(users.length == 0) {
             getAllUser().then(u => {
+                console.log(u)
                 u.sort((a, b) => calcCredits(a) - calcCredits(b))
                 setUsers(u)
             })

@@ -62,6 +62,18 @@
   margin-top: 3rem;
   font-size: 1rem;
 }
+
+.present {
+  background-color: #00dd37;
+  border-color: #00dd37;
+  color: var(--background);
+  cursor: not-allowed;
+}
+
+.present:hover {
+  background-color: #00dd37;
+}
+
 @media screen and (max-width: 750px) {
   .homecontainer {
     flex-direction: column;
