@@ -1,0 +1,74 @@
+.main{
+margin-top: 1.5rem;
+}
+.creditContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.credits{
+    font-size: 4.5rem;
+    margin: .25rem 0;
+}
+
+.breakdownContainer {
+    width: 30rem;
+}
+
+.opportunityRow {
+    width: 100%;
+    background-color: var(--background-darker);
+    border: 1px solid var(--text-accent);
+    display: flex;
+    flex-direction: row;
+}
+
+.event {
+    padding: 1rem;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+}
+
+.event > p {
+    margin: 0;
+}
+
+.numCredits {
+    padding: 1rem;
+    background-color: var(--text-accent);
+    color: var(--background-darker);
+    font-weight: bold;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.numCredits > p {
+    margin: 0;
+}
+
+.header {
+    padding: 1rem;
+    background-color: var(--text-accent);
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    color: var(--background-darker);
+    width: 100%;
+}
+
+.header > h2 {
+    margin: 0;
+}
+
+@media screen and (max-width: 750px) {
+    .breakdownContainer {
+        max-width: 20rem;
+    }
+
+    .main {
+        padding: 1rem;
+    }
+}
