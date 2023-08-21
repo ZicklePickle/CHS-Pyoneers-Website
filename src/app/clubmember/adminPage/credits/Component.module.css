@@ -33,6 +33,17 @@
 
 }
 
+.input{
+    padding: .4rem 0rem;
+    width: 40px;
+    text-align: center;
+}
+.inputReason{
+    padding: .5rem .5rem;
+    width: 200px;
+    height:70px;
+}
+
 @media screen and (max-width: 750px) {
         .main{
             top:0;

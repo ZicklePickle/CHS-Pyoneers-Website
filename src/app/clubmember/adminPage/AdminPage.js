@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { firebase } from '../../firebase/config';
 import { getAllUser, updateCreds } from '../../services/userService'
 import VerifyModal from './verify/VerifyModal'
+import CreditsModal from './credits/CreditsModal'
 export default function AdminPage({ user, userDoc }) {
 
   const [allUsers, setAllUsers] = useState({})
@@ -33,7 +34,7 @@ setCurrentModal('none')
       <div className={styles.Container}>
 
         <div className={styles.creditIcon}></div>
-        <button className='btn-primary'>Manage Credits</button>
+        <button onClick={()=>setCurrentModal('credits')}  className='btn-primary'>Manage Credits</button>
 
       </div>
 
@@ -46,7 +47,7 @@ setCurrentModal('none')
 
 
       {currentModal=="verify"? <VerifyModal closeModal={closeModal} Users={allUsers}/> : <></>}
-
+      {currentModal=="credits"? <CreditsModal closeModal={closeModal} Users={allUsers}/> : <></>}
 
     </div>
 

@@ -6,11 +6,11 @@ import {motion} from "framer-motion";
 import { RevealAnimation } from '../../../components/revealAnimation/RevealAnimation';
 import { getAllUser, updateCreds,updatePermissions } from '../../../services/userService'
 import { color } from 'framer-motion';
-export default function VerifyModal({ Users, closeModal }) {
+export default function CreditsModal({ Users, closeModal }) {
     const [allNames, setAllNames] = useState(Object.keys(Users))
     const [selectedUsers,setSelectedUsers] = useState([])
-    const [isVerified,setVerified] = useState(true)
-    const [role,setRole] = useState('student')
+    const [amount,setAmount] = useState(0)
+    const [reason,setReason] = useState('blank')
 
     const handleUpdate = async() =>{
 
@@ -18,9 +18,19 @@ export default function VerifyModal({ Users, closeModal }) {
           alert('please select a user');
           return;
         }
+        
 
-        selectedUsers.map((name)=>updatePermissions(Users[name],role,isVerified));
+        if(reason.length<1){
+            alert('please enter a valid reason')
+            return
+        }
 
+        if(amount==""){
+            alert('please enter a valid ammount')
+            return
+        }
+
+        selectedUsers.map((name)=>updateCreds(Users[name],amount,reason));
         alert('users updated');
 
         closeModal();
@@ -29,8 +39,8 @@ export default function VerifyModal({ Users, closeModal }) {
     const handleCancel = () =>{
 
       setSelectedUsers([]);
-      setVerified(true);
-      setRole('student')
+      setReason('blank');
+      setAmount(0)
       closeModal();
 
     }
@@ -40,7 +50,7 @@ export default function VerifyModal({ Users, closeModal }) {
       <motion.div transition={{duration:.4,delay:.1}} initial={{opacity:0,y:80}} animate={{opacity:1,y:0}} className={styles.main}>
         
 
-        <p1 className={styles.title}>Verify/Roles</p1>
+        <p1 className={styles.title}>Manage Credits</p1>
 
         <p1>Users</p1>
         <div className={styles.list}>
@@ -74,22 +84,28 @@ export default function VerifyModal({ Users, closeModal }) {
 />
 </div>
 
-<p1>Verified</p1>
+<p1>Amount</p1>
 
 <div className={styles.btnContainer}>
 
-<button className={isVerified?'btn-primary':'btn-secondary'} onClick={()=>setVerified(true)}>Yes</button>
-<button className={!isVerified?'btn-primary':'btn-secondary'} onClick={()=>setVerified(false)}>No</button>
+<input
+          className={styles.input}
+          type="number"
+          value={amount}
+          onChange={(e) => setAmount(e.target.value)}
+        />
 
 </div>
 
-<p1>Role</p1>
+<p1>Reason</p1>
 
 <div className={styles.btnContainer}>
 
-<button className={role=='student'?'btn-primary':'btn-secondary'} onClick={()=>setRole('student')}>Student</button>
-<button className={role=='instructor'?'btn-primary':'btn-secondary'} onClick={()=>setRole('instructor')}>Instructor</button>
-<button className={role=='admin'?'btn-primary':'btn-secondary'} onClick={()=>setRole('admin')}>Admin</button>
+<textarea
+          className={styles.inputReason}
+         
+          onChange={(e) => setReason(e.target.value)}
+        />
 </div>
 
 

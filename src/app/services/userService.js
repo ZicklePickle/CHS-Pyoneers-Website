@@ -43,10 +43,10 @@ async function getAllUser(){
     return userSnapshot.data();
 }
 
-async function updateCreds(uid,currentCredits,addCredits,reason) {
+async function updateCreds(uid,addCredits,reason) {
     const userRef = firebase.firestore().collection('users').doc(uid);
 
-    let totalCredits = addCredits+currentCredits;
+    
 
     let curDate = new Date();
 
@@ -62,11 +62,11 @@ async function updateCreds(uid,currentCredits,addCredits,reason) {
 
   
     await userRef.update({
-        credits: totalCredits,
+        credits: firebase.firestore.FieldValue.increment(addCredits),
         creditsBreakdown: firebase.firestore.FieldValue.arrayUnion(...breakDown)
     });
 
-    return totalCredits; 
+    return; 
     
 }
 
