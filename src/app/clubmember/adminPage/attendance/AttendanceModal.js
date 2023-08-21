@@ -69,6 +69,7 @@ export default function AttendanceModal({ Users, closeModal }) {
 
   return (
     <div className={styles.main}>
+      <p1>Attendance</p1>
       <div>
         <input className={styles.allowLoggingBox} type="checkbox" id="allowLogging" name="allowLogging" defaultChecked={allowLogging} onChange={e => updateAttendanceLogConfig(e)} />
         <label for="allowLogging">Allow Attendance Logging</label>

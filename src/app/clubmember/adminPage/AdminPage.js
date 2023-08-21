@@ -42,11 +42,6 @@ setCurrentModal('none')
 
 
       <div className={styles.Container}>
-        <div className={styles.announcementIcon}></div>
-        <button className='btn-primary'>Announcements</button>
-      </div>
-
-      <div className={styles.Container}>
         <div className={styles.verifyIcon}></div>
         <button className='btn-primary' onClick={()=>setCurrentModal("attendance")}>Manage Attendance</button>
       </div>

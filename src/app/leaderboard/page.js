@@ -18,7 +18,7 @@ export default function Page() {
     }, [])
 
     function calcCredits(user) {
-        const creds = user.creditsBreakdown.reduce((accum, curVal) => accum + curVal.credits, 0)
+        const creds = user.credits;
         console.log(creds)
         return creds
     }
