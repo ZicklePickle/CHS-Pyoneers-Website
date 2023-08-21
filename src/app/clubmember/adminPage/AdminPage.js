@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { firebase } from '../../firebase/config';
 import { getAllUser, updateCreds } from '../../services/userService'
 import VerifyModal from './verify/VerifyModal'
+import AttendanceModal from "./attendance/AttendanceModal"
 export default function AdminPage({ user, userDoc }) {
 
   const [allUsers, setAllUsers] = useState({})
@@ -44,9 +45,14 @@ setCurrentModal('none')
         <button className='btn-primary'>Announcements</button>
       </div>
 
+      <div className={styles.Container}>
+        <div className={styles.verifyIcon}></div>
+        <button className='btn-primary' onClick={()=>setCurrentModal("attendance")}>Manage Attendance</button>
+      </div>
 
-      {currentModal=="verify"? <VerifyModal closeModal={closeModal} Users={allUsers}/> : <></>}
 
+      {currentModal=="verify" ? <VerifyModal closeModal={closeModal} Users={allUsers}/> : <></>}
+      {currentModal == "attendance" ? <AttendanceModal closeModal={closeModal} Users={allUsers}></AttendanceModal> : ""}
 
     </div>
 
