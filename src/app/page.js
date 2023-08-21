@@ -154,7 +154,7 @@ export default function Home() {
                 <h2>Welcome!</h2>
               </div>
               <div className={styles.modalContent}>
-                <p>It looks this is your first time visiting the website. If you do not have an account, click the register button below!</p>
+                <p>It looks like this is your first time visiting the website. If you do not have an account, click the register button below!</p>
                 <button class="btn-primary" onClick={registerOrLoginUser}>Register</button>
                 <button class="btn-secondary" onClick={() => setShowModal(false)}>Dismiss</button>
               </div>
