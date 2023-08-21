@@ -16,6 +16,10 @@ function dateString(date) {
 async function logAttendanceFor(uid, date) {
     const dateStr = dateString(date)
             
+    await logAttendanceForStr(uid, dateStr)
+}
+
+async function logAttendanceForStr(uid, dateStr) {
     const dayRef = firebase.firestore().collection("attendance").doc(dateStr);
     const daySnapshot = await dayRef.get()
     
@@ -38,14 +42,31 @@ async function logAttendanceFor(uid, date) {
 
 async function getAttendance(date) {
     const dateStr = dateString(date)
+    return await getAttendanceForStr(dateStr);
+}
+
+async function getAttendanceForStr(dateStr) {
     const dayRef = firebase.firestore().collection("attendance").doc(dateStr);
     const daySnapshot = await dayRef.get()
 
     if(daySnapshot.exists) {
-        return daySnapshot.get()
+        return daySnapshot
     } else {
         return null;
     }
+}
+
+async function allowAttendanceLogging() {
+    const config = (await firebase.firestore().collection("config").doc("attendance").get()).data();
+    return config.allowLogging;
+}
+
+async function setAllowAttendanceLogging(allow) {
+    const configRef = firebase.firestore().collection("config").doc("attendance");
+    
+    await configRef.update({
+        allowLogging: allow
+    })
 }
 
 async function isPresent(uid, date) {
@@ -67,7 +88,11 @@ async function isPresent(uid, date) {
 
 export {
     dateString,
+    isPresent,
+    allowAttendanceLogging,
+    setAllowAttendanceLogging,
+    getAttendanceForStr,
+    logAttendanceForStr,
     logAttendanceFor,
     getAttendance,
-    isPresent
 }

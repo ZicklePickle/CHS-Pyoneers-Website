@@ -7,12 +7,12 @@ import { RevealAnimation } from '../../../components/revealAnimation/RevealAnima
 import { getAllUser, updateCreds,updatePermissions } from '../../../services/userService'
 import { color } from 'framer-motion';
 export default function VerifyModal({ Users, closeModal }) {
-    const [allNames, setAllNames] = useState(Object.keys(Users))
-    const [selectedUsers,setSelectedUsers] = useState([])
-    const [isVerified,setVerified] = useState(true)
-    const [role,setRole] = useState('student')
+  const [allNames, setAllNames] = useState(Object.keys(Users))
+  const [selectedUsers, setSelectedUsers] = useState([])
+  const [isVerified, setVerified] = useState(true)
+  const [role, setRole] = useState('student')
 
-    const handleUpdate = async() =>{
+  const handleUpdate = async () => {
 
         if(selectedUsers.length<1){
           alert('please select a user');
@@ -21,9 +21,9 @@ export default function VerifyModal({ Users, closeModal }) {
 
         selectedUsers.map((name)=>updatePermissions(Users[name],role,isVerified));
 
-        alert('users updated');
+    alert('users updated');
 
-        closeModal();
+    closeModal();
 
     }
     const handleCancel = () =>{
@@ -42,34 +42,37 @@ export default function VerifyModal({ Users, closeModal }) {
 
         <p1 className={styles.title}>Verify/Roles</p1>
 
-        <p1>Users</p1>
-        <div className={styles.list}>
+ 
+  
+
+      <p1>Users</p1>
+      <div className={styles.list}>
         <Multiselect
-  isObject={false}
+          isObject={false}
 
 
 
-  onKeyPressFn={function noRefCheck(){}}
-  onRemove={(event)=>{
-    setSelectedUsers(event);
-    console.log(event)
-  }}
-  onSearch={function noRefCheck(){}}
-  onSelect={(event)=>{
-    setSelectedUsers(event);
-  }}
-  options={allNames}
+          onKeyPressFn={function noRefCheck() { }}
+          onRemove={(event) => {
+            setSelectedUsers(event);
+            console.log(event)
+          }}
+          onSearch={function noRefCheck() { }}
+          onSelect={(event) => {
+            setSelectedUsers(event);
+          }}
+          options={allNames}
 
-  style={
-    {
-        option:{
-            color:'black',
-        },
-        inputField:{
-            color:'white',
-        },
-    }
-  }
+          style={
+            {
+              option: {
+                color: 'black',
+              },
+              inputField: {
+                color: 'white',
+              },
+            }
+          }
 
 />
 </div>
@@ -96,7 +99,8 @@ export default function VerifyModal({ Users, closeModal }) {
 <button onClick={()=>handleCancel()} className='btn-secondary'>Cancel</button>
 <button onClick={()=>handleUpdate()} className='btn-primary'>Confirm</button>
 </motion.div>
-      
-    )
-  }
+      )
+    
   
+  
+}

@@ -9,12 +9,13 @@ import { auth, provider, firebase } from './firebase/config';
 import { useEffect, useState } from 'react';
 import {getUser, registerUserDoc} from './services/userService'
 import { useRouter } from 'next/navigation'
-import { isPresent, logAttendanceFor } from './services/attendanceService';
+import { allowAttendanceLogging, isPresent, logAttendanceFor } from './services/attendanceService';
 
 export default function Home() {
   let [user, setUser] = useState(null)
   let [present, setPresent] = useState(false)
   let [showModal, setShowModal] = useState(false)
+  let [showAttendanceBtn, setShowAttendanceBtn] = useState(false)
   let router = useRouter()
 
   useEffect(() => {
@@ -26,6 +27,11 @@ export default function Home() {
           setPresent(p)
         })
       }
+    })
+
+    allowAttendanceLogging().then(allow => {
+      console.log("Attendance Enabled: " + allow)
+      setShowAttendanceBtn(allow)
     })
 
     if(!localStorage.getItem("visited")) {
@@ -75,6 +81,7 @@ export default function Home() {
   }
 
   async function logAttendance() {
+    console.log("Logging")
     if(present) return;
 
     let authUser = user; 
@@ -106,7 +113,7 @@ export default function Home() {
           <p>Centennial's premier programming club!</p>
           <div className={styles.btngroup}>
             <button className='btn-primary' onClick={viewCredits}>View Credits</button>
-            <button className={`btn-secondary ${present ? styles.present : ""}`} onClick={logAttendance}>{present ? "You are marked present" :  "Log Attendance"}</button>
+            <button disabled={!showAttendanceBtn} className={`btn-secondary ${present ? styles.present : ""}`} onClick={logAttendance}>{present ? "You are marked present" :  "Log Attendance"}</button>
           </div>
         </div>
       </div>
@@ -147,7 +154,7 @@ export default function Home() {
                 <h2>Welcome!</h2>
               </div>
               <div className={styles.modalContent}>
-                <p>It looks this is your first time visiting the website. If you do not have an account, click the register button below!</p>
+                <p>It looks like this is your first time visiting the website. If you do not have an account, click the register button below!</p>
                 <button class="btn-primary" onClick={registerOrLoginUser}>Register</button>
                 <button class="btn-secondary" onClick={() => setShowModal(false)}>Dismiss</button>
               </div>
