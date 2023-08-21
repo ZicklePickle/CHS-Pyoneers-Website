@@ -43,7 +43,7 @@ export default function Home() {
                 <h2 className={styles.boardName}>Caleb Shim</h2>
                 <p className={styles.boardPosition}>President</p>
                 <p className={styles.boardBio}>
-                Caleb Shim is a junior at Centennial High School who is a writer for the Tournament Committee of CHS Pyoneers. He enjoys growing his programming skills and participating in competitions. He is also a member of the CHS math team and the National Math Honor Society. In his free time, he likes playing the piano, playing basketball and videogames with his friends, and procrastinating.
+                Caleb is a senior at Centennial High School who is a writer for the Tournament Committee of CHS Pyoneers. He enjoys growing his programming skills and participating in competitions. He is also a member of the CHS math team and the National Math Honor Society. In his free time, he likes playing the piano, playing basketball and videogames with his friends, and procrastinating.
                 </p>
               </div>
               <div className={styles.boardMember}>
@@ -51,7 +51,7 @@ export default function Home() {
                 <h2 className={styles.boardName}>Joel Chemmanur</h2>
                 <p className={styles.boardPosition}>Vice President</p>
                 <p className={styles.boardBio}>
-                Joel is a junior at Centennial High School and one of the problem writers for the Tournament Committee of the CHS Pyoneers. He is also a member of Science Olympiad, FIRST Tech Challenge, and the CHS Competitive Coding club. In his free time, he likes talking to friends, playing various video games, and working on random Python scripts and programs for fun.
+                Joel is a senior at Centennial High School and one of the problem writers for the Tournament Committee of the CHS Pyoneers. He is also a member of Science Olympiad, FIRST Tech Challenge, and the CHS Competitive Coding club. In his free time, he likes talking to friends, playing various video games, and working on random Python scripts and programs for fun.
                 </p>
               </div>
               <div className={styles.boardMember}>
@@ -92,7 +92,7 @@ export default function Home() {
                 <h2 className={styles.boardName}>Jasir Siddiqui</h2>
                 <p className={styles.boardPosition}>Treasurer</p>
                 <p className={styles.boardBio}>
-                Caleb Shim is a junior at Centennial High School who is a writer for the Tournament Committee of CHS Pyoneers. He enjoys growing his programming skills and participating in competitions. He is also a member of the CHS math team and the National Math Honor Society. In his free time, he likes playing the piano, playing basketball and videogames with his friends, and procrastinating.
+                Caleb is a senior at Centennial High School who is a writer for the Tournament Committee of CHS Pyoneers. He enjoys growing his programming skills and participating in competitions. He is also a member of the CHS math team and the National Math Honor Society. In his free time, he likes playing the piano, playing basketball and videogames with his friends, and procrastinating.
                 </p>
               </div>
               <div className={styles.boardMember}>
@@ -100,7 +100,7 @@ export default function Home() {
                 <h2 className={styles.boardName}>Nicole Luo</h2>
                 <p className={styles.boardPosition}>PR Manager</p>
                 <p className={styles.boardBio}>
-                Nicole is a junior at Centennial High School, where she is a member of SGA, her Class Board, and various other clubs. She is currently also an intern for the non-profit organization Code Your Chances, a group that aims to break down gender barriers in STEM. In her free time, she loves to listen to music and rewatch Ratatouille.
+                Nicole is a senior at Centennial High School, where she is a member of SGA, her Class Board, and various other clubs. She is currently also an intern for the non-profit organization Code Your Chances, a group that aims to break down gender barriers in STEM. In her free time, she loves to listen to music and rewatch Ratatouille.
                 </p>
               </div>
             </div>
