@@ -6,7 +6,6 @@
 .homecontainer {
   display: flex;
   flex-direction: row;
-  
   gap: 2rem;
   width: 100%;
   align-items: center;
@@ -150,4 +149,37 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.clubPicturesContainer {
+  background: linear-gradient(45deg, #031d23 0%, #191927 100%);
+  padding-top: 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.clubPictureRow {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.clubPicture {
+  max-width: 33%;
+  max-height: 20%;
+}
+
+.longClubPicture {
+  max-width: 100%;
+  max-height: 5%;
+}
+
+.modalTitle {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
 }

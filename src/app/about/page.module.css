@@ -40,12 +40,6 @@
     margin-top: 50px;
 }
 
-.committeeContainer {
-    width: 90%;
-    margin: auto;
-    margin-top: 50px;
-}
-
 .aboutcontainer {
   display: flex;
   flex-direction: row;
@@ -68,4 +62,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.committee {
+    width: 50%;
 }
