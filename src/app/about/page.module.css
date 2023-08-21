@@ -67,3 +67,41 @@
 .committee {
     width: 50%;
 }
+
+.boardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.boardMember {
+  width: calc(25% - 20px);
+  background: linear-gradient(45deg, #00333f 0%, #232331 100%);
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.boardImage {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.boardName {
+  margin: 5px 0;
+  font-size: 1.2rem;
+}
+
+.boardPosition {
+  margin: 5px 0;
+  font-weight: bold;
+  color: #b7b7b7;
+}
+
+.boardBio {
+  font-size: 0.9rem;
+  color: #777;
+}
