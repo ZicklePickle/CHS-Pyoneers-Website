@@ -19,9 +19,9 @@ async function registerUserDoc(user, role, verified) {
     const newUserDocData = {
         displayName: user.displayName,
         email: user.email,
-        credits: 0,
+        credits: 1,
         verified: verified,
-        creditsBreakdown: [{ credits: 0, for: "Website signup", date: finalDate },],
+        creditsBreakdown: [{ credits: 1, for: "Website signup", date: finalDate },],
         role: role,
     };
 

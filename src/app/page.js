@@ -14,6 +14,7 @@ import { isPresent, logAttendanceFor } from './services/attendanceService';
 export default function Home() {
   let [user, setUser] = useState(null)
   let [present, setPresent] = useState(false)
+  let [showModal, setShowModal] = useState(false)
   let router = useRouter()
 
   useEffect(() => {
@@ -26,9 +27,26 @@ export default function Home() {
         })
       }
     })
+
+    if(!localStorage.getItem("visited")) {
+      setShowModal(true)
+      localStorage.setItem("visited", true)
+    }
   }, [])
 
   async function viewCredits() {
+    let authUser = user; 
+  
+    if (authUser == null) {
+      authUser = await registerOrLoginUser()
+    }
+  
+    if (authUser) {
+      router.push("/clubmember");
+    }
+  }
+
+  async function registerOrLoginUser() {
     let authUser = user; 
   
     if (authUser == null) {
@@ -50,8 +68,10 @@ export default function Home() {
         await registerUserDoc(authUser, "student", true);
       }
 
-      router.push("/clubmember");
+      setShowModal(false)
     }
+
+    return authUser;
   }
 
   async function logAttendance() {
@@ -60,24 +80,10 @@ export default function Home() {
     let authUser = user; 
   
     if (authUser == null) {
-      try {
-        await setPersistence(auth, browserSessionPersistence);
-        const result = await signInWithPopup(auth, provider);
-        authUser = result.user;
-        setUser(authUser);
-      } catch (err) {
-        console.log(err);
-        return; 
-      }
+      authUser = await registerOrLoginUser()
     }
   
     if (authUser) {
-      let userSnapshot = await getUser(authUser.uid);
-  
-      if (!userSnapshot.exists) {
-        await registerUserDoc(authUser, "student", true);
-      }
-      
       if(!(await isPresent(authUser.uid, new Date()))) {
         await logAttendanceFor(authUser.uid, new Date())
         alert("You have been marked present!")
@@ -133,7 +139,22 @@ export default function Home() {
           </div>
         </div>
       </div>
+      {
+        showModal ? (
+          <div className={styles.modalContainer}>
+            <div className={styles.modal}>
+              <div className={styles.modalHeader}>
+                <h2>Welcome!</h2>
+              </div>
+              <div className={styles.modalContent}>
+                <p>It looks this is your first time visiting the website. If you do not have an account, click the register button below!</p>
+                <button class="btn-primary" onClick={registerOrLoginUser}>Register</button>
+                <button class="btn-secondary" onClick={() => setShowModal(false)}>Dismiss</button>
+              </div>
+            </div>
+          </div>
+        ) : ""
+      }
     </main>
-
   )
 }

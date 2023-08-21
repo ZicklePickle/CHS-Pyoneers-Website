@@ -33,7 +33,7 @@ export default function Page() {
             })
         }
 
-        return userCredits.sort((a, b) => a.credits - b.credits);
+        return userCredits.sort((a, b) => b.credits - a.credits);
     }
 
     return (
@@ -45,7 +45,7 @@ export default function Page() {
                 <div className={styles.leaderboard}>
                 {
                     leaderboard.map((entry, index) => 
-                        <p>{index+1}. {entry.name} - {entry.credits} credits</p>
+                        <p>{(index+1) == 1 ? "🥇" : (index+1) == 2 ? "🥈" : (index+1) == 3 ? "🥉" : `${index+1}. `} {entry.name} - {entry.credits} credits</p>
                     )
                 }
                 </div>
