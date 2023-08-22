@@ -36,7 +36,7 @@ export default function Home() {
             <RevealAnimation>
               <h1 className={inherited_styles.title} style={{textAlign: 'center'}}>Meet the Board</h1>
             </RevealAnimation>
-            <RevealAnimation>
+            <RevealAnimation> 
             <div className={styles.boardContainer}>
               <div className={styles.boardMember}>
                 <img src="/Website/caleb_headshot.jpg" alt="Board Member" className={styles.boardImage} />
@@ -84,7 +84,7 @@ export default function Home() {
                 <h2 className={styles.boardName}>Ramy Kaddouri</h2>
                 <p className={styles.boardPosition}>Education Chair</p>
                 <p className={styles.boardBio}>
-                  Ramy is a senior at Centennial High School, where he is part of the Centennial Competitive Coding club board, a problem writer for the Pyoneers Tournament Committee, and an author for the CHS Math Journal. Ramy is also an organizer for QuHacks, a local project-based hackathon. In his free time, he enjoys competing in programming competitions, working on side projects, reading the news, and wasting too much time tinkering with flight simulators (X-Plane {'>'} MSFS).
+                  Ramy is a senior at Centennial High School, where he is the president of the Competitive Programming Club, a problem writer for the Pyoneers Tournament Committee, and an author for the CHS Math Journal. Ramy is also an organizer for QuHacks, a local project-based hackathon. In his free time, he enjoys competing in programming competitions, working on side projects, reading the news, and wasting too much time tinkering with flight simulators.
                 </p>
               </div>
               <div className={styles.boardMember}>

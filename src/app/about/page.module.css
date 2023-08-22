@@ -70,13 +70,14 @@
 
 .boardContainer {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
 }
 
 .boardMember {
-  width: calc(25% - 20px);
+  max-width: 20rem;
   background: linear-gradient(45deg, #00333f 0%, #232331 100%);
   padding: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -104,4 +105,20 @@
 .boardBio {
   font-size: 0.9rem;
   color: #777;
+}
+
+@media screen and (max-width: 900px) {
+  .aboutcontainer{
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem;
+    gap: 0;
+  }
+  .aboutInfoContainer{
+    width:100%;
+    margin-top: 4rem;
+  }
+  .pythonImageContainer{
+    order:1;
+  }
 }

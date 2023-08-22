@@ -112,7 +112,7 @@ export default function Home() {
           <span className={styles.title}>CHS Pyoneers</span>
           <p>Centennial's premier programming club!</p>
           <div className={styles.btngroup}>
-            <button className='btn-primary' onClick={viewCredits}>View Credits</button>
+            <button className='btn-primary' onClick={viewCredits}>View Dashboard</button>
             <button disabled={!showAttendanceBtn} className={`btn-secondary ${present ? styles.present : ""}`} onClick={logAttendance}>{present ? "You are marked present" :  "Log Attendance"}</button>
           </div>
         </div>
