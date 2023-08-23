@@ -28,7 +28,7 @@ export default function Home() {
             </RevealAnimation>
           </div>
           <div className={inherited_styles.pythonImageContainer}>
-            <img src="/Website/logo.png" className={inherited_styles.logo} />
+            <img src="/logo.png" className={inherited_styles.logo} />
           </div>
         </div>
 
@@ -39,7 +39,7 @@ export default function Home() {
             <RevealAnimation> 
             <div className={styles.boardContainer}>
               <div className={styles.boardMember}>
-                <img src="/Website/caleb_headshot.jpg" alt="Board Member" className={styles.boardImage} />
+                <img src="/caleb_headshot.jpg" alt="Board Member" className={styles.boardImage} />
                 <h2 className={styles.boardName}>Caleb Shim</h2>
                 <p className={styles.boardPosition}>President</p>
                 <p className={styles.boardBio}>
@@ -47,7 +47,7 @@ export default function Home() {
                 </p>
               </div>
               <div className={styles.boardMember}>
-                <img src="/Website/joel_headshot.jpg" alt="Board Member" className={styles.boardImage} />
+                <img src="/joel_headshot.jpg" alt="Board Member" className={styles.boardImage} />
                 <h2 className={styles.boardName}>Joel Chemmanur</h2>
                 <p className={styles.boardPosition}>Vice President</p>
                 <p className={styles.boardBio}>
@@ -55,7 +55,7 @@ export default function Home() {
                 </p>
               </div>
               <div className={styles.boardMember}>
-                <img src="/Website/anurag_headshot.jpg" alt="Board Member" className={styles.boardImage} />
+                <img src="/anurag_headshot.jpg" alt="Board Member" className={styles.boardImage} />
                 <h2 className={styles.boardName}>Anurag Sodhi</h2>
                 <p className={styles.boardPosition}>Vice President</p>
                 <p className={styles.boardBio}>
@@ -63,7 +63,7 @@ export default function Home() {
                 </p>
               </div>
               <div className={styles.boardMember}>
-                <img src="/Website/aryan_headshot.jpg" alt="Board Member" className={styles.boardImage} />
+                <img src="/aryan_headshot.jpg" alt="Board Member" className={styles.boardImage} />
                 <h2 className={styles.boardName}>Aryan Sharma</h2>
                 <p className={styles.boardPosition}>Secretary</p>
                 <p className={styles.boardBio}>
@@ -72,7 +72,7 @@ export default function Home() {
               </div>
 
               <div className={styles.boardMember}>
-                <img src="/Website/jaden_headshot.jpg" alt="Board Member" className={styles.boardImage} />
+                <img src="/jaden_headshot.jpg" alt="Board Member" className={styles.boardImage} />
                 <h2 className={styles.boardName}>Jaden Li</h2>
                 <p className={styles.boardPosition}>Credit Chair</p>
                 <p className={styles.boardBio}>
@@ -80,7 +80,7 @@ export default function Home() {
                 </p>
               </div>
               <div className={styles.boardMember}>
-                <img src="/Website/ramy_headshot.jpeg" alt="Board Member" className={styles.boardImage} />
+                <img src="/ramy_headshot.jpeg" alt="Board Member" className={styles.boardImage} />
                 <h2 className={styles.boardName}>Ramy Kaddouri</h2>
                 <p className={styles.boardPosition}>Education Chair</p>
                 <p className={styles.boardBio}>
@@ -88,7 +88,7 @@ export default function Home() {
                 </p>
               </div>
               <div className={styles.boardMember}>
-                <img src="/Website/jasir_headshot.jpg" alt="Board Member" className={styles.boardImage} />
+                <img src="/jasir_headshot.jpg" alt="Board Member" className={styles.boardImage} />
                 <h2 className={styles.boardName}>Jasir Siddiqui</h2>
                 <p className={styles.boardPosition}>Treasurer</p>
                 <p className={styles.boardBio}>
@@ -96,7 +96,7 @@ export default function Home() {
                 </p>
               </div>
               <div className={styles.boardMember}>
-                <img src="/Website/nicole_headshot.png" alt="Board Member" className={styles.boardImage} />
+                <img src="/nicole_headshot.png" alt="Board Member" className={styles.boardImage} />
                 <h2 className={styles.boardName}>Nicole Luo</h2>
                 <p className={styles.boardPosition}>PR Manager</p>
                 <p className={styles.boardBio}>
