@@ -46,8 +46,6 @@ async function getAllUser(){
 async function updateCreds(uid,addCredits,reason) {
     const userRef = firebase.firestore().collection('users').doc(uid);
 
-    
-
     let curDate = new Date();
 
     let date = curDate.getDate();

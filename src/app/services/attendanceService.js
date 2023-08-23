@@ -1,6 +1,8 @@
 import { firebase } from '../firebase/config';
 import {updateDoc, arrayUnion} from "firebase/firestore"
+import { updateCreds } from './userService';
 
+const ATTENDANCE_CREDITS = 1;
 
 function dateString(date) {
     let day = date.getDate();
@@ -16,10 +18,6 @@ function dateString(date) {
 async function logAttendanceFor(uid, date) {
     const dateStr = dateString(date)
             
-    await logAttendanceForStr(uid, dateStr)
-}
-
-async function logAttendanceForStr(uid, dateStr) {
     const dayRef = firebase.firestore().collection("attendance").doc(dateStr);
     const daySnapshot = await dayRef.get()
     
@@ -38,10 +36,15 @@ async function logAttendanceForStr(uid, dateStr) {
 
         await dayRef.set(newAttendanceData)
     }
+
+    let formattedDate = dateStr.substring(0,2) + "/" + dateStr.substring(2,4) + "/" + dateStr.substring(4)
+    console.log(formattedDate)
+    await updateCreds(uid, ATTENDANCE_CREDITS, "Meeting/Lesson on " + formattedDate)
 }
 
 async function getAttendance(date) {
     const dateStr = dateString(date)
+    console.log(dateStr)
     return await getAttendanceForStr(dateStr);
 }
 
@@ -73,6 +76,7 @@ async function isPresent(uid, date) {
     const dateStr = dateString(date)
     const dayRef = firebase.firestore().collection("attendance").doc(dateStr);
     const daySnapshot = await dayRef.get()
+    console.log(dateStr)
     
     if(daySnapshot.exists) {
         let att = daySnapshot.data()
@@ -92,7 +96,6 @@ export {
     allowAttendanceLogging,
     setAllowAttendanceLogging,
     getAttendanceForStr,
-    logAttendanceForStr,
     logAttendanceFor,
     getAttendance,
 }

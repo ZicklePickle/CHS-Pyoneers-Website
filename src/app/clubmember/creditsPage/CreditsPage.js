@@ -22,7 +22,7 @@ export default function CreditsPage({ user, userDoc }) {
                 </div>
                 {
                     creditBreakdown.map((opportunity, index) => (
-                        <div className={styles.opportunityRow}>
+                        <div key={index} className={styles.opportunityRow}>
                             <div className={styles.event}>
                                 <p>{opportunity.for}</p>
                             </div>

@@ -22,6 +22,7 @@ margin-top: 1.5rem;
     border: 1px solid var(--text-accent);
     display: flex;
     flex-direction: row;
+    margin-bottom: 1rem;
 }
 
 .event {

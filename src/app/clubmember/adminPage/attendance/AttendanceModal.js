@@ -10,19 +10,29 @@ export default function AttendanceModal({ Users, closeModal }) {
   let [date, setDate] = useState(null)
 
   useEffect(() => {
-    allowAttendanceLogging().then(allow => setAllowLogging(allow))
+    allowAttendanceLogging().then(allow => {
+      console.log(allow)
+      setAllowLogging(allow)
+    })
   }, [])
 
-  async function updateAttendanceLogConfig(e) {
-    let allow = e.target.checked
+  async function updateAttendanceLogConfig(checked) {
+    let allow = checked
     setAllowLogging(allow)
     await setAllowAttendanceLogging(allow)
   }
 
   function dateChanged(e) {
-    let dateStr = e.target.value;
-    console.log(new Date(Date.parse(dateStr)))
-    setDate(new Date(Date.parse(dateStr)))
+    let dateStr = e.target.value; //Format: 2023-08-21
+    
+    //Timezones are a pain...
+    let fixedDate = new Date();
+    fixedDate.setFullYear(dateStr.substring(0, 4))
+    fixedDate.setMonth(parseInt(dateStr.substring(5,7))-1)
+    fixedDate.setDate(dateStr.substring(8))
+
+    console.log(fixedDate)
+    setDate(fixedDate)
   }
 
   async function showAttendanceLog() {
@@ -71,7 +81,7 @@ export default function AttendanceModal({ Users, closeModal }) {
     <div className={styles.main}>
       <p1>Attendance</p1>
       <div>
-        <input className={styles.allowLoggingBox} type="checkbox" id="allowLogging" name="allowLogging" defaultChecked={allowLogging} onChange={e => updateAttendanceLogConfig(e)} />
+        <input className={styles.allowLoggingBox} type="checkbox" id="allowLogging" name="allowLogging" checked={allowLogging} onChange={e => updateAttendanceLogConfig(e.target.checked)} />
         <label for="allowLogging">Allow Attendance Logging</label>
       </div>
       <div className={styles.list}>
