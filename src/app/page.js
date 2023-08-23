@@ -106,7 +106,7 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <div className={styles.homecontainer}>
-        <Image src="/Website/logo.png" width={100} height={100} sizes='(max-width: 750px) 15rem, 20rem' className={styles.logo} />
+        <Image src="/logo.png" width={100} height={100} sizes='(max-width: 750px) 15rem, 20rem' className={styles.logo} />
         <div>
           {user ? <p><strong>Hello {user.displayName}!</strong></p> : ""}
           <span className={styles.title}>CHS Pyoneers</span>
@@ -140,20 +140,20 @@ export default function Home() {
                 repeat: Infinity,
                 duration: 9,
                 ease: 'linear',
-              }} src="/Website/pythonLogo.png" className={styles.logo} />
+              }} src="/pythonLogo.png" className={styles.logo} />
           </div>
         </div>
       </div>
       <div className={styles.clubPicturesContainer}>
         <p className={styles.modalTitle}>2022-2023</p>
         <div className={styles.clubPictureRow}>
-          <img src="/Website/club_picture_half1.jpg" className={styles.clubPicture} />
-          <img src="/Website/club_picture_half2.jpg" className={styles.clubPicture} />
-          <img src="/Website/club_picture_half3.jpg" className={styles.clubPicture} />
+          <img src="/club_picture_half1.jpg" className={styles.clubPicture} />
+          <img src="/club_picture_half2.jpg" className={styles.clubPicture} />
+          <img src="/club_picture_half3.jpg" className={styles.clubPicture} />
         </div>
         <p className={styles.modalTitle} style={{marginTop: '4rem'}}>2021-2022</p>
         <div className={styles.clubPictureRow}>
-          <img src="/Website/club_picture_long1.jpg" className={styles.longClubPicture} />
+          <img src="/club_picture_long1.jpg" className={styles.longClubPicture} />
         </div>
       </div>
       {
