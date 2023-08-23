@@ -25,12 +25,12 @@ export default function CreditsModal({ Users, closeModal }) {
             return
         }
 
-        if(amount==""){
+        if(amount.trim()==""){
             alert('please enter a valid ammount')
             return
         }
 
-        selectedUsers.map((name)=>updateCreds(Users[name],amount,reason));
+        selectedUsers.map((name)=>updateCreds(Users[name],parseInt(amount),reason));
         alert('users updated');
 
         closeModal();
