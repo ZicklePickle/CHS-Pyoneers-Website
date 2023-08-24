@@ -88,11 +88,11 @@ export default function Home() {
                 </p>
               </div>
               <div className={styles.boardMember}>
-                <img src="/jasir_headshot.jpg" alt="Board Member" className={styles.boardImage} />
+                <img src="/jasir_headshot.png" alt="Board Member" className={styles.boardImage} />
                 <h2 className={styles.boardName}>Jasir Siddiqui</h2>
                 <p className={styles.boardPosition}>Treasurer</p>
                 <p className={styles.boardBio}>
-                Caleb is a senior at Centennial High School who is a writer for the Tournament Committee of CHS Pyoneers. He enjoys growing his programming skills and participating in competitions. He is also a member of the CHS math team and the National Math Honor Society. In his free time, he likes playing the piano, playing basketball and videogames with his friends, and procrastinating.
+                Jasir is a senior at Centennial High School, where he is a part of the tournament and education committee of Pyoneers. He is also a part of other clubs such as math team. In his free time he likes to play video games, watch different shows, code, and play different puzzle games such as Flow Free.
                 </p>
               </div>
               <div className={styles.boardMember}>
