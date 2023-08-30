@@ -105,6 +105,9 @@ export default function Home() {
 
   return (
     <main className={styles.main}>
+      <div className={styles.announcementBanner}>
+        <p>📢  NEW MEMBERS: Make sure to fill out the club signup form <a href="https://docs.google.com/forms/d/e/1FAIpQLSdEjhuI1HppdYNX4lgr19UALhSscOlOk1ggNZXmZLF26QgO7w/viewform" rel="noreferrer noopener" target="_blank">HERE</a>!</p>
+      </div>
       <div className={styles.homecontainer}>
         <Image src="/logo.png" width={100} height={100} sizes='(max-width: 750px) 15rem, 20rem' className={styles.logo} />
         <div>
