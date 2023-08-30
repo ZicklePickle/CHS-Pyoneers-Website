@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'CHS Pyoneers',
-  description: 'Website for CHS Pyoneers',
+  description: "Centennial's Premier CS Club",
 }
 
 export default function RootLayout({ children }) {
