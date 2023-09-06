@@ -1,13 +1,15 @@
 "use client";
 import Image from 'next/image'
 import styles from './page.module.css'
-import { motion } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 import { RevealAnimation } from "./components/revealAnimation/RevealAnimation"
 import Link from 'next/link';
 import { signInWithPopup, setPersistence, browserSessionPersistence } from 'firebase/auth';
 import { auth, provider, firebase } from './firebase/config';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Component } from 'react';
 import {getUser, registerUserDoc} from './services/userService'
+
+import {getAnnouncements} from './services/announcementService'
 import { useRouter } from 'next/navigation'
 import { allowAttendanceLogging, isPresent, logAttendanceFor } from './services/attendanceService';
 
@@ -16,6 +18,7 @@ export default function Home() {
   let [present, setPresent] = useState(false)
   let [showModal, setShowModal] = useState(false)
   let [showAttendanceBtn, setShowAttendanceBtn] = useState(false)
+  let[announcementsArr,setAnnouncementsArr] = useState([]);
   let router = useRouter()
 
   useEffect(() => {
@@ -27,7 +30,23 @@ export default function Home() {
           setPresent(p)
         })
       }
+
+
+
     })
+
+    async function fetchAnnouncements() {
+      try {
+        const fetchedData = await getAnnouncements();
+        console.log('Fetched Data:', fetchedData);
+        setAnnouncementsArr(fetchedData);
+      
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    }
+  
+    fetchAnnouncements();
 
     allowAttendanceLogging().then(allow => {
       console.log("Attendance Enabled: " + allow)
@@ -101,12 +120,69 @@ export default function Home() {
       }
     }
   }
+
+  function AnnouncementTicker({ announcementsArr }) {
+    const controls = useAnimation();
+    
+  const [textWidth,setWidth] = useState(0);
+    useEffect(() => {
+      for(let i=0;i<announcementsArr.length-1;i++){
+        let theAnnouncement = announcementsArr[i].announcement;
+        let length = theAnnouncement.length
+        setWidth(textWidth+length)
+ 
+      }
+    
+     
+  
+    }, []);
+  
+  
+    const replaceWordWithLink = (text, word, link) => {
+      const words = text.split(' ');
+      return words.map((w, index) => (
+        w === word ? (
+          <a key={index} href={link} target="_blank" rel="noopener noreferrer">
+            {w}
+          </a>
+        ) : (
+          <span key={index}>{w} </span>
+        )
+      ));
+    };
+  
+    return (
+      <motion.div
+        className={styles.announcementBanner}
+        initial={{ x: '110%' }} 
+        animate={{x:'-95%'}}
+        transition={{duration:20,ease: 'linear', 
+        repeat: Infinity, 
+        repeatType: 'loop',
+        delay:0,}} 
+
+      >
+        {announcementsArr.map((announcement, index) => (
+          <motion.p
+      
+      
+          key={index}>
+            📢
+           
+            {replaceWordWithLink(announcement.announcement, announcement.link[0], announcement.link[1])}
+          </motion.p>
+        ))}
+      </motion.div>
+    );
+  }
   
 
   return (
     <main className={styles.main}>
       <div className={styles.announcementBanner}>
-        <p>📢  NEW MEMBERS: Make sure to fill out the club signup form <a href="https://docs.google.com/forms/d/e/1FAIpQLSdEjhuI1HppdYNX4lgr19UALhSscOlOk1ggNZXmZLF26QgO7w/viewform" rel="noreferrer noopener" target="_blank">HERE</a>!</p>
+        <AnnouncementTicker announcementsArr={announcementsArr}/>
+    
+     
       </div>
       <div className={styles.homecontainer}>
         <Image src="/logo.png" width={100} height={100} sizes='(max-width: 750px) 15rem, 20rem' className={styles.logo} />

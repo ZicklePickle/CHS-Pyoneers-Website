@@ -9,6 +9,7 @@ export default function Page() {
     useEffect(() => {
         if(leaderboard.length == 0) {
             getAllUser().then(users => {
+                console.log(users)
                 fetchCredits(users).then(lb => {
                     console.log(lb)
                     setLeaderboard(lb)
@@ -18,6 +19,7 @@ export default function Page() {
     }, [])
 
     function calcCredits(user) {
+      
         const creds = user.credits;
         console.log(creds)
         return creds
@@ -27,10 +29,16 @@ export default function Page() {
         let userCredits = []
         for(const [name, id] of Object.entries(users)) {
             let userData = (await getUser(id)).data();
-            userCredits.push({
-                name: name,
-                credits: calcCredits(userData)
-            })
+            console.log(userData)
+            console.log(id)
+            if(userData!=undefined){
+                
+                userCredits.push({
+                    name: name,
+                    credits: calcCredits(userData)
+                })
+            }
+            
         }
 
         return userCredits.sort((a, b) => b.credits - a.credits);
