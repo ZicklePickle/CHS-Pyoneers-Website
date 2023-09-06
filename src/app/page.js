@@ -154,23 +154,18 @@ export default function Home() {
     return (
       <motion.div
         className={styles.announcementBanner}
-        initial={{ x: '110%' }} 
+        initial={{ x: '0%' }} 
         animate={{x:'-95%'}}
-        transition={{duration:20,ease: 'linear', 
+        transition={{duration:50,ease: 'linear', 
         repeat: Infinity, 
         repeatType: 'loop',
         delay:0,}} 
 
       >
         {announcementsArr.map((announcement, index) => (
-          <motion.p
-      
-      
-          key={index}>
-            📢
-           
-            {replaceWordWithLink(announcement.announcement, announcement.link[0], announcement.link[1])}
-          </motion.p>
+          <p key={index}>
+            📢  {replaceWordWithLink(announcement.announcement, announcement.link[0], announcement.link[1])}
+          </p>
         ))}
       </motion.div>
     );
@@ -181,8 +176,6 @@ export default function Home() {
     <main className={styles.main}>
       <div className={styles.announcementBanner}>
         <AnnouncementTicker announcementsArr={announcementsArr}/>
-    
-     
       </div>
       <div className={styles.homecontainer}>
         <Image src="/logo.png" width={100} height={100} sizes='(max-width: 750px) 15rem, 20rem' className={styles.logo} />

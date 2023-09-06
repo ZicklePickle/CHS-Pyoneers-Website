@@ -16,25 +16,20 @@
 
 .announcementBanner {
   background-color: var(--text-accent);
-  padding: 0.5rem;
+  padding: 0.25rem;
   font-size: 1rem;
   flex-direction: row;
   display: flex;
-max-height: 100px;
   align-items: center;
-  min-width:100%;
-  max-width: fit-content;
-  gap:10rem;
+  justify-content: center;
+  width: 200%;
+  gap:2rem;
 }
 
 .announcementBanner > p {
   margin: 0;
   font-weight: bold;
   text-align: center;
-  max-height: 50px;
-  width: max-content;
-
-
 }
 
 .announcementBanner > p > a {
