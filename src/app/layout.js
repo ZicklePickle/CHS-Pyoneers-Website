@@ -12,7 +12,7 @@ export const metadata = {
     icon: 'logo.png'
   },
   openGraph: {
-    images: 'preview-card.png',
+    images: 'https://chspyoneers.com/preview-card.png',
   },
 }
 
