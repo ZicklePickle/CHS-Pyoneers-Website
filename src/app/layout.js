@@ -8,6 +8,12 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata = {
   title: 'CHS Pyoneers',
   description: "Centennial's Premier CS Club",
+  icons: {
+    icon: 'logo.png'
+  },
+  openGraph: {
+    images: 'preview-card.png',
+  },
 }
 
 export default function RootLayout({ children }) {
