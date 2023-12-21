@@ -60,7 +60,7 @@ export default function CreditsModal({ Users, closeModal }) {
 
     let pick = hat[Math.floor(Math.random() * hat.length)];
     setRaffling(false);
-    alert("Raffle winner " + pick.name + " with " + pick.credits + " credits!");
+    alert("Raffle winner is " + pick.name + " with " + pick.credits + " credits!");
   }
 
   async function fetchCredits(users) {
