@@ -30,8 +30,8 @@ export default function CreditsModal({ Users, closeModal }) {
       return
     }
 
-    selectedUsers.map((name) => updateCreds(Users[name], parseInt(amount), reason));
-    alert('users updated');
+        selectedUsers.map((name)=>updateCreds(Users[name],parseFloat(amount),reason));
+        alert('users updated');
 
     closeModal();
 
