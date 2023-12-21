@@ -1,7 +1,6 @@
 .main{
     background: rgb(21, 40, 49);
     width:550px;
-    height:650px;
     border-radius: 2rem;
     display: flex;
     flex-direction: column;
