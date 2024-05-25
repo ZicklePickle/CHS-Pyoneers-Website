@@ -39,70 +39,63 @@ export default function Home() {
             <RevealAnimation> 
             <div className={styles.boardContainer}>
               <div className={styles.boardMember}>
-                <img src="/caleb_headshot.jpg" alt="Board Member" className={styles.boardImage} />
-                <h2 className={styles.boardName}>Caleb Shim</h2>
+                <img src="/aryan_headshot.jpg" alt="Board Member" className={styles.boardImage} />
+                <h2 className={styles.boardName}>Aryan Shwarma</h2>
                 <p className={styles.boardPosition}>President</p>
                 <p className={styles.boardBio}>
-                Caleb is a senior at Centennial High School who is a writer for the Tournament Committee of CHS Pyoneers. He enjoys growing his programming skills and participating in competitions. He is also a member of the CHS math team and the National Math Honor Society. In his free time, he likes playing the piano, playing basketball and videogames with his friends, and procrastinating.
+                Aryan is a senior at Centennial High School and is currently the president of CHS Pyoneers. He is also part of Centennial's AI Club, CyberPatriot, Competitive Coding Club, and Math Team. Outside of school, Aryan enjoys competing in Capture The Flag (CTF) tournaments with friends, going to overnight hackathons, and playing some combination of basketball and IO games.
                 </p>
               </div>
               <div className={styles.boardMember}>
-                <img src="/joel_headshot.jpg" alt="Board Member" className={styles.boardImage} />
-                <h2 className={styles.boardName}>Joel Chemmanur</h2>
+                <img src="/jaden_headshot.png" alt="Board Member" className={styles.boardImage} />
+                <h2 className={styles.boardName}>Jaden Li</h2>
                 <p className={styles.boardPosition}>Vice President</p>
                 <p className={styles.boardBio}>
-                Joel is a senior at Centennial High School and one of the problem writers for the Tournament Committee of the CHS Pyoneers. He is also a member of Science Olympiad, FIRST Tech Challenge, and the CHS Competitive Coding club. In his free time, he likes talking to friends, playing various video games, and working on random Python scripts and programs for fun.
+                Jaden is a senior at Centennial High School, where he is vice president of CHS Pyoneers. He is also a captain of the CHS Math Team, secretary of the National Math Honor Society, and a member of the varsity tennis team. In his free time, he enjoys improving his programming and math skills, playing the cello in various youth orchestras, playing tennis with friends, and playing videogames on his switch (Mario Kart is his specialty).
                 </p>
               </div>
               <div className={styles.boardMember}>
-                <img src="/anurag_headshot.jpg" alt="Board Member" className={styles.boardImage} />
-                <h2 className={styles.boardName}>Anurag Sodhi</h2>
+                <img src="/victor_headshot.png" alt="Board Member" className={styles.boardImage} />
+                <h2 className={styles.boardName}>Victor Liu</h2>
                 <p className={styles.boardPosition}>Vice President</p>
                 <p className={styles.boardBio}>
-                  Anurag is a senior at Centennial High School, where he is the Vice President of CHS Pyoneers. He is also a member of the National Math Honor Society, It's Academic, Science Bowl, Science Olympiad, Math Team, Speech and Debate, and Science Journal. Outside of school, Anurag enjoys Tetris, biking, reading chemistry textbooks, and being better than Daeyong at toughlovearena.com.
+                Victor is a senior at Centennial High School. He is current the vice-president of the CHS Pyoneers club but also enjoys participating in other clubs including Math Team and CyberPatriot. In his free time, Victor often plays tennis with his friends, participates in hackathons, as well as plays the violin.
                 </p>
               </div>
               <div className={styles.boardMember}>
-                <img src="/aryan_headshot.jpg" alt="Board Member" className={styles.boardImage} />
-                <h2 className={styles.boardName}>Aryan Sharma</h2>
+                <img src="/joshua_headshot.png" alt="Board Member" className={styles.boardImage} />
+                <h2 className={styles.boardName}>Joshua Oh</h2>
                 <p className={styles.boardPosition}>Secretary</p>
                 <p className={styles.boardBio}>
-                  Aryan is a junior at Centennial High School, where he is part of the education and tournament committees on Pyoneers. Alongside that, he's a member of the CHS Math Team and CHS AI Club. Some of his favorite hobbies include wasting time on FIFA, playing football and basketball, and learning about recent machine learning advances. Sometimes, he attempts to read recent AI papers.
+                Joshua is a junior at Centennial High School, where is he the secretary of CHS Pyoneers. He is also the vice president of French Club and Habitat for Humanity. In his free time, he enjoys programming, listening to music, and running with his friends.
                 </p>
               </div>
 
               <div className={styles.boardMember}>
-                <img src="/jaden_headshot.jpg" alt="Board Member" className={styles.boardImage} />
-                <h2 className={styles.boardName}>Jaden Li</h2>
-                <p className={styles.boardPosition}>Credit Chair</p>
-                <p className={styles.boardBio}>
-                  Jaden is a junior at Centennial High School, where he is a problem writer for the Tournament Committee of CHS Pyoneers and an educator for the Dunloggin Middle School branch of the Education Committee. He is also a member of Science Olympiad, the CHS Math Team, and the varsity tennis team. In his free time, he enjoys improving his programming and math skills, practicing the piano and cello, playing tennis with friends, and playing videogames on his switch (Mario Kart is his specialty).
-                </p>
-              </div>
-              <div className={styles.boardMember}>
-                <img src="/ramy_headshot.jpeg" alt="Board Member" className={styles.boardImage} />
-                <h2 className={styles.boardName}>Ramy Kaddouri</h2>
-                <p className={styles.boardPosition}>Education Chair</p>
-                <p className={styles.boardBio}>
-                  Ramy is a senior at Centennial High School, where he is the president of the Competitive Programming Club, a problem writer for the Pyoneers Tournament Committee, and an author for the CHS Math Journal. Ramy is also an organizer for QuHacks, a local project-based hackathon. In his free time, he enjoys competing in programming competitions, working on side projects, reading the news, and wasting too much time tinkering with flight simulators.
-                </p>
-              </div>
-              <div className={styles.boardMember}>
-                <img src="/jasir_headshot.png" alt="Board Member" className={styles.boardImage} />
-                <h2 className={styles.boardName}>Jasir Siddiqui</h2>
-                <p className={styles.boardPosition}>Treasurer</p>
-                <p className={styles.boardBio}>
-                Jasir is a senior at Centennial High School, where he is a part of the tournament and education committee of Pyoneers. He is also a part of other clubs such as math team. In his free time he likes to play video games, watch different shows, code, and play different puzzle games such as Flow Free.
-                </p>
-              </div>
-              <div className={styles.boardMember}>
-                <img src="/nicole_headshot.png" alt="Board Member" className={styles.boardImage} />
-                <h2 className={styles.boardName}>Nicole Luo</h2>
+                <img src="/rana_headshot.png" alt="Board Member" className={styles.boardImage} />
+                <h2 className={styles.boardName}>Rana Cherukuri</h2>
                 <p className={styles.boardPosition}>PR Manager</p>
                 <p className={styles.boardBio}>
-                Nicole is a senior at Centennial High School, where she is a member of SGA, her Class Board, and various other clubs. She is currently also an intern for the non-profit organization Code Your Chances, a group that aims to break down gender barriers in STEM. In her free time, she loves to listen to music and rewatch Ratatouille.
+                Rana is a junior at Centennial High School, where he is the PR Manager of CHS Pyoneers. He is also president of the Java Development Club, and a member of the National English Honor Society, and a current Life Scout in his Scouts troop. In his free time, he enjoys programming, playing Pokémon, camping, and watching Marvel.
                 </p>
               </div>
+              <div className={styles.boardMember}>
+                <img src="/lak_headshot.png" alt="Board Member" className={styles.boardImage} />
+                <h2 className={styles.boardName}>Lakshith Senthil</h2>
+                <p className={styles.boardPosition}>Member at Large</p>
+                <p className={styles.boardBio}>
+                Lakshith is a sophomore at Centennial High School, where he is the Member at Large of CHS Pyoneers. He was also in the Class Board of 2027 and part of the Humanities board. In his free time, he enjoys playing Brawl Stars, programming, and walking outside. 
+                </p>
+              </div>
+              <div className={styles.boardMember}>
+                <img src="/daud_headshot.png" alt="Board Member" className={styles.boardImage} />
+                <h2 className={styles.boardName}>Daud Idrees</h2>
+                <p className={styles.boardPosition}>Webmaster</p>
+                <p className={styles.boardBio}>
+                Daud is a senior at Centennial High School, where he is a part of the education committee and Webmaster for Pyoneers. He is also a part of other clubs such as AI Club. In his free time he likes to play video games, watch different shows, code, and sleep.
+                </p>
+              </div>
+              
             </div>
             </RevealAnimation>
           </div>
