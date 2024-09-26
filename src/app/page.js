@@ -197,8 +197,8 @@ export default function Home() {
             </RevealAnimation>
 
             <RevealAnimation>
-              <p className={styles.text}>CHS Pyoneers is Centennial High School's premier programming club! Since its inception in 2020, the Pyoneers club has rapidly grown to become one of the largest clubs in Centennial. It has hosted the 2021, 2022, and 2023 Centennial Informatics Tournaments with over <font color="green">250+ cumulative attendees</font> over the years. Additionally, the club has held Python lessons at numerous middle and high schools with <font color="green">200+ students</font> taught over the years.
-              Currently, the club is still rapidly growing and has over <font color="green">100 members</font> who all play an active part in our community!
+              <p className={styles.text}>CHS Pyoneers is Centennial High School's premier programming club! Since its inception in 2020, the Pyoneers club has rapidly grown to become one of the largest clubs in Centennial. It has hosted the 2021, 2022, 2023, and 2024 Centennial Informatics Tournaments with <font color="green">300 cumulative attendees</font> over the years. Additionally, the club has held Python lessons at five middle and high schools with <font color="green">200 students</font> taught over the years.
+              Currently, the club is still rapidly growing and has nearly <font color="green">50 members</font> who play an active part in our community!
               </p>
               <Link href='/about' className={styles.learnMoreBtn}>Learn More!</Link>
             </RevealAnimation>
