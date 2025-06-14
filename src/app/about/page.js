@@ -39,6 +39,63 @@ export default function Home() {
             <RevealAnimation> 
             <div className={styles.boardContainer}>
               <div className={styles.boardMember}>
+                <img src="/board/joshua_headshot.png" alt="Joshua Oh" className={styles.boardImage} />
+                <h2 className={styles.boardName}>Joshua Oh</h2>
+                <p className={styles.boardPosition}>President</p>
+                <p className={styles.boardBio}>
+                  Joshua is a senior at Centennial High School, where he is the president of CHS Pyoneers. He is also the director for QuHacks and the vice president of French Club. In his free time, he enjoys programming, collecting records, and playing the Alto Saxophone.
+                </p>
+              </div>
+              <div className={styles.boardMember}>
+                <img src="/board/rana_headshot.png" alt="Rana Pratap Cherukuri" className={styles.boardImage} />
+                <h2 className={styles.boardName}>Rana Pratap Cherukuri</h2>
+                <p className={styles.boardPosition}>President</p>
+                <p className={styles.boardBio}>
+                  Rana is a senior at Centennial High School with a passion for technology, problem-solving, and collaboration. At CHS, he is actively involved in tech clubs and various honor societies. Outside of school, Rana enjoys looking for new challenges and opportunities to grow via internships. In his free time, he loves watching Marvel, playing Pokémon, and listening to music. 
+                </p>
+              </div>
+              <div className={styles.boardMember}>
+                <img src="/board/lak_headshot.png" alt="Lakshith Senthil" className={styles.boardImage} />
+                <h2 className={styles.boardName}>Lakshith Senthil</h2>
+                <p className={styles.boardPosition}>Vice President</p>
+                <p className={styles.boardBio}>
+                  Lakshith is a junior at Centennial High School, where he is the Vice President of CHS Pyoneers. He was also in the Class Board of 2027 and National Math Honor Society. In his free time, he enjoys playing chess, programming, and watching different shows.
+                </p>
+              </div>
+              <div className={styles.boardMember}>
+                <img src="/board/evan_headshot.png" alt="Evan Luo" className={styles.boardImage} />
+                <h2 className={styles.boardName}>Evan Luo</h2>
+                <p className={styles.boardPosition}>Secretary</p>
+                <p className={styles.boardBio}>
+                  Evan is a sophomore at Centennial High School and is currently the secretary of CHS Pyoneers. He also participates in Centennial's Competitive Coding Club and competes in FTC Robotics and VEX Robotics. In his free time, he enjoys playing video games, playing soccer, watching different movies and shows, and programming.
+                </p>
+              </div>
+              <div className={styles.boardMember}>
+                <img src="/board/taha_headshot.png" alt="Taha Ahmed" className={styles.boardImage} />
+                <h2 className={styles.boardName}>Taha Ahmed</h2>
+                <p className={styles.boardPosition}>PR Manager</p>
+                <p className={styles.boardBio}>
+                  Taha is a sophmore at Centennial High School where he is the PR Manager of Pyoneers. He loves to be funny and to help others. He also enjoys wrestling, playing soccer video games, and taking care of his chickens. Outside of school he frequently volunteers at Miller Library and Howard County parks and recs.
+                </p>
+              </div>
+              <div className={styles.boardMember}>
+                <img src="/board/jayson_headshot.png" alt="Jayson Liu" className={styles.boardImage} />
+                <h2 className={styles.boardName}>Jayson Liu</h2>
+                <p className={styles.boardPosition}>Member at Large</p>
+                <p className={styles.boardBio}>
+                  Jayson is a junior at Centennial High School, where he is the Member at Large of CHS Pyoneers. He is also the Member at Large for CHS Competitive Programming Club. In his free time, he enjoys playing the piano, programming, and running.
+                </p>
+              </div>
+              <div className={styles.boardMember}>
+                <img src="/board/zach_headshot.png" alt="Zachary Schmelzer" className={styles.boardImage} />
+                <h2 className={styles.boardName}>Zachary Schmelzer</h2>
+                <p className={styles.boardPosition}>Webmaster</p>
+                <p className={styles.boardBio}>
+                  Zachary is a sophomore at Centennial High School, where he is the Webmaster of CHS Pyoneers. He is also part of Centennial's Competitive Coding Club, Web Development Club, and competes in FTC Robotics. When outside the classroom, he likes to participate in hackathons, program bots for fun websites, and create full-stack web applications.
+                </p>
+              </div>
+
+              {/* <div className={styles.boardMember}>
                 <img src="/aryan_headshot.jpg" alt="Board Member" className={styles.boardImage} />
                 <h2 className={styles.boardName}>Aryan Sharma</h2>
                 <p className={styles.boardPosition}>President</p>
@@ -70,7 +127,6 @@ export default function Home() {
                 Joshua is a junior at Centennial High School, where is he the secretary of CHS Pyoneers. He is also the vice president of French Club and Habitat for Humanity. In his free time, he enjoys programming, listening to music, and running with his friends.
                 </p>
               </div>
-
               <div className={styles.boardMember}>
                 <img src="/rana_headshot.png" alt="Board Member" className={styles.boardImage} />
                 <h2 className={styles.boardName}>Rana Cherukuri</h2>
@@ -95,7 +151,14 @@ export default function Home() {
                 Daud is a senior at Centennial High School, where he is a part of the education committee and Webmaster for Pyoneers. He is also a part of other clubs such as AI Club. In his free time he likes to play video games, watch different shows, code, and sleep.
                 </p>
               </div>
-              
+              <div className={styles.boardMember}>
+                <img src="/logo.png" alt="Board Member" className={styles.boardImage} />
+                <h2 className={styles.boardName}>Zachary Schmelzer</h2>
+                <p className={styles.boardPosition}>Webmaster</p>
+                <p className={styles.boardBio}>
+                Zachary is a sophomore at Centennial High School, where he is the Webmaster of CHS Pyoneers. He is also part of Centennial's Competitive Coding Club, Web Development Club, and competes in FTC Robotics. He likes to participate in hackathons like CInT and QuHacks, program bots for fun websites, and create full-stack web applications.
+                </p>
+              </div> */}
             </div>
             </RevealAnimation>
           </div>
