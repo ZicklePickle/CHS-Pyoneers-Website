@@ -194,13 +194,13 @@
 }
 
 .clubPicture {
-  max-width: 33%;
-  max-height: 20%;
+  width: calc(80% / 3);
+  height: auto;
 }
 
 .longClubPicture {
-  max-width: 100%;
-  max-height: 5%;
+  width: 80%;
+  height: auto;
 }
 
 .modalTitle {
