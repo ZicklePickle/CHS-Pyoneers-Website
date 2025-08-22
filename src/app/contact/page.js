@@ -27,7 +27,7 @@ export default function Home() {
           <a href="https://www.instagram.com/chspyoneers/" target="_blank" className={`${styles.btn} ${styles.instagram}`}>
             Instagram
           </a>
-          <a href="https://discord.gg/c4RF24rUp8s" target="_blank" className={`${styles.btn} ${styles.discord}`}>
+          <a href="https://discord.gg/rv3pBqQUcX" target="_blank" className={`${styles.btn} ${styles.discord}`}>
             Discord
           </a>
           <a href="mailto:chspyoneers@gmail.com" className={`${styles.btn} ${styles.email}`}>
