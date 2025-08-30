@@ -118,7 +118,7 @@ async function resetAllCredits() {
     const month = curDate.getMonth() + 1;
     const year = curDate.getFullYear();
     const finalDate = month + "-" + date + "-" + year;
-    
+
     const CHUNK = 500; // fb limit
     const newBreakdown = [{ credits: 1, for: "Website signup", date: finalDate }];
     const failed = [];
@@ -152,5 +152,57 @@ async function resetAllCredits() {
     return failed;
 }
 
+async function batchUpdateCredits(uids, addCredits, reason) {
+    if (!Array.isArray(uids) || uids.length === 0) return [];
 
-export { getUser, registerUserDoc, updateCreds, getAllUser, updatePermissions, registerAlternateUser, resetAllCredits };
+    const CHUNK = 500;
+    const failed = [];
+
+    const curDate = new Date();
+    const date = curDate.getDate();
+    const month = curDate.getMonth() + 1;
+    const year = curDate.getFullYear();
+    const finalDate = month + "-" + date + "-" + year;
+
+    const breakDown = [{ credits: addCredits, for: reason, date: finalDate }];
+
+    for (let i = 0; i < uids.length; i += CHUNK) {
+        const batch = firebase.firestore().batch();
+        const chunk = uids.slice(i, i + CHUNK);
+
+        for (const uid of chunk) {
+            const userRef = firebase.firestore().collection('users').doc(uid);
+
+            batch.update(userRef, {
+                credits: firebase.firestore.FieldValue.increment(addCredits),
+                creditsBreakdown: firebase.firestore.FieldValue.arrayUnion(...breakDown)
+            });
+        }
+
+        try {
+            await batch.commit();
+        } catch (e) {
+            console.error('batch commit failed for chunk starting at', i, e);
+            failed.push(...chunk);
+        }
+    }
+
+    return failed;
+}
+
+async function getUsersByIds(uids) {
+    if (!Array.isArray(uids) || uids.length === 0) return [];
+    const CHUNK = 500;
+    const results = [];
+
+    for (let i = 0; i < uids.length; i += CHUNK) {
+        const chunk = uids.slice(i, i + CHUNK);
+        const promises = chunk.map((uid) => firebase.firestore().collection('users').doc(uid).get());
+        const snaps = await Promise.all(promises);
+        results.push(...snaps);
+    }
+
+    return results;
+}
+
+export { getUser, registerUserDoc, updateCreds, getAllUser, updatePermissions, registerAlternateUser, resetAllCredits, batchUpdateCredits, getUsersByIds };
