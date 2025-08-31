@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Multiselect from 'multiselect-react-dropdown';
 import { motion } from "framer-motion";
 import { RevealAnimation } from '../../../components/revealAnimation/RevealAnimation';
-import { getAllUser, updateCreds, getUser } from '../../../services/userService'
+import { getAllUser, updateCreds, getUser, batchUpdateCredits, getUsersByIds } from '../../../services/userService'
 import { color } from 'framer-motion';
 export default function CreditsModal({ Users, closeModal }) {
   const [allNames, setAllNames] = useState(Object.keys(Users))
@@ -30,8 +30,13 @@ export default function CreditsModal({ Users, closeModal }) {
       return
     }
 
-        selectedUsers.map((name)=>updateCreds(Users[name],parseFloat(amount),reason));
-        alert('users updated');
+    const uids = selectedUsers.map(name => Users[name]).filter(Boolean);
+    const failed = await batchUpdateCredits(uids, parseFloat(amount), reason);
+    if (failed.length) {
+      alert(`Updated with failures for ${failed.length} users; see console.`);
+    } else {
+      alert('users updated');
+    }
 
     closeModal();
 
@@ -65,15 +70,17 @@ export default function CreditsModal({ Users, closeModal }) {
 
   async function fetchCredits(users) {
     let userCredits = []
-    for (const [name, id] of Object.entries(users)) {
-      let userData = (await getUser(id)).data();
-      if (userData != undefined) {
-        userCredits.push({
-          name: name,
-          credits: calcCredits(userData)
-        })
-      }
+    const entries = Object.entries(users);
+    const uids = entries.map(([name, id]) => id);
+    const snaps = await getUsersByIds(uids);
 
+    for (let i = 0; i < snaps.length; i++) {
+      const snap = snaps[i];
+      const name = entries[i][0];
+      const userData = snap.data();
+      if (userData != undefined) {
+        userCredits.push({ name: name, credits: calcCredits(userData) })
+      }
     }
 
     return userCredits.sort((a, b) => b.credits - a.credits);

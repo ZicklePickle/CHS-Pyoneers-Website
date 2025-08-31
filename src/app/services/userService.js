@@ -30,7 +30,7 @@ async function registerUserDoc(user, role, verified) {
 
     await firebase.firestore().collection('users').doc('allUsers').update(
         {
-            [user.displayName]:user.uid
+            [user.displayName]: user.uid
 
         }
     )
@@ -38,7 +38,7 @@ async function registerUserDoc(user, role, verified) {
 }
 
 async function registerAlternateUser(name, email, role, verified) {
-    let id = "alt_" + name.toLowerCase().replace(" ", "_") + (Math.round(Math.random()*1000));
+    let id = "alt_" + name.toLowerCase().replace(" ", "_") + (Math.round(Math.random() * 1000));
     const userRef = firebase.firestore().collection('users').doc(id);
     let signUpDate = new Date();
 
@@ -61,21 +61,21 @@ async function registerAlternateUser(name, email, role, verified) {
 
     await firebase.firestore().collection('users').doc('allUsers').update(
         {
-            [name]:id
+            [name]: id
 
         }
     )
     return newUserDocData;
 }
 
-async function getAllUser(){
+async function getAllUser() {
     const userRef = firebase.firestore().collection('users').doc('allUsers');
     const userSnapshot = await userRef.get();
 
     return userSnapshot.data();
 }
 
-async function updateCreds(uid,addCredits,reason) {
+async function updateCreds(uid, addCredits, reason) {
     const userRef = firebase.firestore().collection('users').doc(uid);
 
     let curDate = new Date();
@@ -90,26 +90,119 @@ async function updateCreds(uid,addCredits,reason) {
         { credits: addCredits, for: reason, date: finalDate }
     ];
 
-  
+
     await userRef.update({
         credits: firebase.firestore.FieldValue.increment(addCredits),
         creditsBreakdown: firebase.firestore.FieldValue.arrayUnion(...breakDown)
     });
 
-    return; 
-    
+    return;
+
 }
 
-async function updatePermissions(uid,role,verified) {
+async function updatePermissions(uid, role, verified) {
     const userRef = firebase.firestore().collection('users').doc(uid);
 
     await userRef.update({
-        role:role,
-        verified:verified,
+        role: role,
+        verified: verified,
     });
-
-    
-    
 }
 
-export { getUser, registerUserDoc, updateCreds,getAllUser,updatePermissions, registerAlternateUser }
+async function resetAllCredits() {
+    const usersMap = await getAllUser();
+    const uids = Object.values(usersMap || {});
+
+    const curDate = new Date();
+    const date = curDate.getDate();
+    const month = curDate.getMonth() + 1;
+    const year = curDate.getFullYear();
+    const finalDate = month + "-" + date + "-" + year;
+
+    const CHUNK = 500; // fb limit
+    const newBreakdown = [{ credits: 1, for: "Website signup", date: finalDate }];
+    const failed = [];
+
+    for (let i = 0; i < uids.length; i += CHUNK) {
+        const batch = firebase.firestore().batch();
+        const chunk = uids.slice(i, i + CHUNK);
+
+        chunk.forEach((uid) => {
+            const userRef = firebase.firestore().collection('users').doc(uid);
+            batch.set(userRef, {
+                credits: 1,
+                creditsBreakdown: newBreakdown
+            }, {
+                merge: true
+            });
+        });
+
+        try {
+            await batch.commit();
+        } catch (e) {
+            console.error('batch commit failed for chunk starting at', i, e);
+            failed.push(...chunk);
+        }
+    }
+
+    if (failed.length) {
+        console.warn('some updates failed', failed.length, 'uids');
+    }
+
+    return failed;
+}
+
+async function batchUpdateCredits(uids, addCredits, reason) {
+    if (!Array.isArray(uids) || uids.length === 0) return [];
+
+    const CHUNK = 500;
+    const failed = [];
+
+    const curDate = new Date();
+    const date = curDate.getDate();
+    const month = curDate.getMonth() + 1;
+    const year = curDate.getFullYear();
+    const finalDate = month + "-" + date + "-" + year;
+
+    const breakDown = [{ credits: addCredits, for: reason, date: finalDate }];
+
+    for (let i = 0; i < uids.length; i += CHUNK) {
+        const batch = firebase.firestore().batch();
+        const chunk = uids.slice(i, i + CHUNK);
+
+        for (const uid of chunk) {
+            const userRef = firebase.firestore().collection('users').doc(uid);
+
+            batch.update(userRef, {
+                credits: firebase.firestore.FieldValue.increment(addCredits),
+                creditsBreakdown: firebase.firestore.FieldValue.arrayUnion(...breakDown)
+            });
+        }
+
+        try {
+            await batch.commit();
+        } catch (e) {
+            console.error('batch commit failed for chunk starting at', i, e);
+            failed.push(...chunk);
+        }
+    }
+
+    return failed;
+}
+
+async function getUsersByIds(uids) {
+    if (!Array.isArray(uids) || uids.length === 0) return [];
+    const CHUNK = 500;
+    const results = [];
+
+    for (let i = 0; i < uids.length; i += CHUNK) {
+        const chunk = uids.slice(i, i + CHUNK);
+        const promises = chunk.map((uid) => firebase.firestore().collection('users').doc(uid).get());
+        const snaps = await Promise.all(promises);
+        results.push(...snaps);
+    }
+
+    return results;
+}
+
+export { getUser, registerUserDoc, updateCreds, getAllUser, updatePermissions, registerAlternateUser, resetAllCredits, batchUpdateCredits, getUsersByIds };
